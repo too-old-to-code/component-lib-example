@@ -65,6 +65,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
