@@ -14,28 +14,25 @@ const ParallaxStyled = styled.div`
     height: 90vh;
     position: relative;
     overflow: hidden;
-    .image-wrapper {
+
+
+    .image-wrapper{
       position: absolute;
       left: 0;
       right: 0;
       text-align: center;
       color: white;
-    }
-
-    .image-wrapper{
-      width: 100%;
       height: 130%;
 
-      // img {
-      //   object-fit: cover;
-      //   object-position: 50% 50%;
-      // }
       > div {
         height: 100%;
       }
     }
     img {
+      width: 100%;
+      min-height: 100%;
       object-fit: cover;
+      object-position: 50% 50%;
     }
     h2 {
       position: absolute;
