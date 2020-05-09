@@ -13,10 +13,10 @@ import {
   // MainArea
 } from "@custom-lib"
 
-export const IndexPageTemplate = ({ title, heading, subheading }) => (
+export const IndexPageTemplate = ({ title, heading, subheading, image }) => (
   <div>
     <Parallax
-      image={<img src="https://placeimg.com/1000/1000/animals" alt="" />}
+      image={<img src={image.childImageSharp.fluid.src} alt="" />}
       height="90vh"
       staticContent={
         <Slide
@@ -76,6 +76,7 @@ const IndexPage = ({ data }) => {
       title={frontmatter.title}
       heading={frontmatter.heading}
       subheading={frontmatter.subheading}
+      image={frontmatter.image}
     />
   )
 }
@@ -94,6 +95,13 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
+        image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         heading
         subheading
       }
