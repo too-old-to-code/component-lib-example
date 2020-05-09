@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import logo from "../images/gatsby-icon.png"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import {
   MobileMenu,
@@ -16,8 +17,8 @@ import {
 export const IndexPageTemplate = ({ title, heading, subheading, image }) => (
   <div>
     <Parallax
-      image={<img src={image.childImageSharp.fluid.src} alt="" />}
-      height="90vh"
+      image={<Img fluid={image.childImageSharp.fluid} />}
+      height="60vh"
       staticContent={
         <Slide
           duration="100"

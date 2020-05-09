@@ -124,7 +124,10 @@ const Layout = ({ children }) => {
           </div>
         </ScrollScene>
       </ScrollController>
-      <MainArea forceToTop>{children}</MainArea>
+      <MainArea forceToTop>
+        <div id="top-flag"></div>
+        {children}
+      </MainArea>
     </ThemeProvider>
   )
 }

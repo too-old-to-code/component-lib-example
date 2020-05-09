@@ -14,7 +14,7 @@ const ParallaxStyled = styled.div`
     height: 90vh;
     position: relative;
     overflow: hidden;
-    div {
+    .image-wrapper {
       position: absolute;
       left: 0;
       right: 0;
@@ -22,8 +22,7 @@ const ParallaxStyled = styled.div`
       color: white;
     }
 
-    .image-wrapper,
-    img {
+    .image-wrapper{
       width: 100%;
       height: 130%;
 
@@ -31,6 +30,9 @@ const ParallaxStyled = styled.div`
       //   object-fit: cover;
       //   object-position: 50% 50%;
       // }
+      > div {
+        height: 100%;
+      }
     }
     img {
       object-fit: cover;
@@ -55,7 +57,7 @@ const ParallaxStyled = styled.div`
 // }`
 export const Parallax = props => (
   <ParallaxStyled hideOnMobile={props.hideOnMobile}>
-    <ScrollController container="#main-area">
+    <ScrollController>
       <ScrollScene duration="300%" triggerHook="onEnter">
         <Timeline
           wrapper={
