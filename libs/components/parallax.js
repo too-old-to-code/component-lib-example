@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from "react"
+import PropTypes from "prop-types"
+import styled from "styled-components"
 import {
   ScrollController,
   ScrollScene,
-} from "../scroll-magic/custom-scrollmagic";
-import { Tween, Timeline } from "react-gsap";
+} from "../scroll-magic/custom-scrollmagic"
+import { Tween, Timeline } from "react-gsap"
 
 const ParallaxStyled = styled.div`
   position: relative;
@@ -27,10 +27,13 @@ const ParallaxStyled = styled.div`
       width: 100%;
       height: 130%;
 
-      img {
-        object-fit: cover;
-        object-position: 50% 50%;
-      }
+      // img {
+      //   object-fit: cover;
+      //   object-position: 50% 50%;
+      // }
+    }
+    img {
+      object-fit: cover;
     }
     h2 {
       position: absolute;
@@ -41,16 +44,16 @@ const ParallaxStyled = styled.div`
   }
 }
 @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
-  ${(props) => console.log(props) || (props.hideOnMobile && "display: none;")}
+  ${props => console.log(props) || (props.hideOnMobile && "display: none;")}
 }
-`;
+`
 // ${(props) =>
 //   props.hideOnMobile &&
 //   `
 // @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
 //   display: none;
 // }`
-export const Parallax = (props) => (
+export const Parallax = props => (
   <ParallaxStyled hideOnMobile={props.hideOnMobile}>
     <ScrollController container="#main-area">
       <ScrollScene duration="300%" triggerHook="onEnter">
@@ -67,15 +70,15 @@ export const Parallax = (props) => (
     </ScrollController>
     {props.staticContent}
   </ParallaxStyled>
-);
+)
 
 Parallax.propTypes = {
   height: PropTypes.string,
   staticContent: PropTypes.any,
   image: PropTypes.any,
   hideOnMobile: PropTypes.bool,
-};
+}
 
 Parallax.defaultProps = {
   staticContent: "",
-};
+}
