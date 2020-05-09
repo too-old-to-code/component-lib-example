@@ -84,16 +84,24 @@ export const theme = {
   },
   hamburger: {
     position: "left", // left or right
-    color: "#EC1E69",
+    color: "black",
     background: null,
   },
-  navbar: {
-    textColor: "black",
+  navbarAlt: {
+    textColor: "#303030",
     hoverTextColor: "#EC1E69",
-    // background: "#192a56",
-    background: "white",
+    background: "#FCFAFF",
     hoverBackground: null,
-    // background: "white",
+    backgroundSelected: "#2dbeff",
+    height: "65px",
+  },
+  navbar: {
+    position: "fixed",
+    textColor: "#FCFAFF",
+    hoverTextColor: "#EC1E69",
+    // background: "linear-gradient(rgba(0,0,0,.7),transparent)",
+    background: "rgba(0,0,0,.2)",
+    hoverBackground: null,
     backgroundSelected: "#2dbeff",
     height: "80px",
   },

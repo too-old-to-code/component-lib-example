@@ -11,7 +11,21 @@ collections:
     files:
       - file: "src/pages/index.md"
         label: "Landing Page"
-        name: "index"
+        name: "index-page"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "index-page",
+            }
+          - { label: Title, name: title, widget: string }
+          - { label: Image, name: image, widget: image }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Subheading, name: subheading, widget: string }
+      - file: "src/pages/test.md"
+        label: "Test Page"
+        name: "test-page"
         fields:
           - {
               label: "Template Key",

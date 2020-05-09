@@ -13,8 +13,13 @@ import {
   NavbarLayoutMulti,
   NavbarItem,
   MobileMenu,
-  // MainArea
+  MainArea,
 } from "@custom-lib"
+import {
+  ScrollController,
+  ScrollScene,
+} from "@custom-lib/scroll-magic/custom-scrollmagic"
+// import { Controller, Scene } from "react-scrollmagic";
 
 import { ThemeProvider } from "styled-components"
 import { theme } from "../theme.js"
@@ -78,41 +83,48 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Navbar
-        fixed
-        style={{
-          boxShadow: "0px 5px 10px 0px rgba(0,0,0,0.125)",
-          letterSpacing: "1px",
-        }}
-        burgerMenuStyle="spin"
-        burgerMenuIsActive={burgerMenuIsActive}
-        toggleMenu={() => burgerMenuToggleActive(!burgerMenuIsActive)}
-      >
-        <NavbarLayoutMulti
-          itemsPosition="right"
-          logoPosition="left"
-          mobileMenu={<MobileMenuWithContent isOpen={burgerMenuIsActive} />}
-          logo={
-            <NavbarItem logo>
-              <img style={{ height: "50%" }} src={logo} alt="logo" />
-            </NavbarItem>
-          }
+      <ScrollController>
+        <ScrollScene
+          classToggle="second-color"
+          triggerHook="0"
+          triggerElement="#top-flag"
+          offset="50px"
         >
-          <NavbarItem key="1">
-            <NavItemInner>Home</NavItemInner>
-          </NavbarItem>
-          <NavbarItem key="2">
-            <NavItemInner>About</NavItemInner>
-          </NavbarItem>
-          <NavbarItem key="3">
-            <NavItemInner>Services</NavItemInner>
-          </NavbarItem>
-          <NavbarItem key="4">
-            <NavItemInner>Opportunities</NavItemInner>
-          </NavbarItem>
-        </NavbarLayoutMulti>
-      </Navbar>
-      {children}
+          <div>
+            <Navbar
+              style={{
+                boxShadow: "0px 5px 10px 0px rgba(0,0,0,0.125)",
+                letterSpacing: "1px",
+              }}
+              burgerMenuStyle="spin"
+              burgerMenuIsActive={burgerMenuIsActive}
+              toggleMenu={() => burgerMenuToggleActive(!burgerMenuIsActive)}
+            >
+              <NavbarLayoutMulti
+                itemsPosition="right"
+                logoPosition="left"
+                mobileMenu={
+                  <MobileMenuWithContent isOpen={burgerMenuIsActive} />
+                }
+              >
+                <NavbarItem key="1">
+                  <NavItemInner>Home</NavItemInner>
+                </NavbarItem>
+                <NavbarItem key="2">
+                  <NavItemInner>About</NavItemInner>
+                </NavbarItem>
+                <NavbarItem key="3">
+                  <NavItemInner>Services</NavItemInner>
+                </NavbarItem>
+                <NavbarItem key="4">
+                  <NavItemInner>Opportunities</NavItemInner>
+                </NavbarItem>
+              </NavbarLayoutMulti>
+            </Navbar>
+          </div>
+        </ScrollScene>
+      </ScrollController>
+      <MainArea forceToTop>{children}</MainArea>
     </ThemeProvider>
   )
 }
