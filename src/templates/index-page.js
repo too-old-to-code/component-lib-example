@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import logo from "../images/gatsby-icon.png"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import {
@@ -16,9 +16,11 @@ import {
 
 export const IndexPageTemplate = ({ title, heading, subheading, image }) => (
   <div>
+    <Link to="/test">Test</Link>
     <Parallax
       image={<Img fluid={image.childImageSharp.fluid} />}
-      height="60vh"
+      // image={<img src="https://placeimg.com/1000/1000/animals" alt="" />}
+      height="100vh"
       staticContent={
         <Slide
           duration="100"
@@ -48,6 +50,46 @@ export const IndexPageTemplate = ({ title, heading, subheading, image }) => (
     />
     <Parallax
       image={<img src="https://placeimg.com/1000/1000/animals" alt="" />}
+      height="90vh"
+      staticContent={
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {subheading}
+        </div>
+      }
+    />
+    <Parallax
+      image={<img src="https://placeimg.com/1000/1000/animals" alt="" />}
+      height="90vh"
+      staticContent={
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {subheading}
+        </div>
+      }
+    />
+    <Parallax
+      image={<Img fluid={image.childImageSharp.fluid} />}
       height="90vh"
       staticContent={
         <div

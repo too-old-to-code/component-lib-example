@@ -22,7 +22,7 @@ const ParallaxStyled = styled.div`
       right: 0;
       text-align: center;
       color: white;
-      height: 130%;
+      height: 120%;
 
       > div {
         height: 100%;

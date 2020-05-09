@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 // import React, { useState } from "react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
 // import Layout from "../components/layout"
@@ -14,6 +14,8 @@ import {
   NavbarItem,
   MobileMenu,
   MainArea,
+  Parallax,
+  Slide,
 } from "@custom-lib"
 import {
   ScrollController,
@@ -107,12 +109,16 @@ const Layout = ({ children }) => {
                   <MobileMenuWithContent isOpen={burgerMenuIsActive} />
                 }
               >
-                <NavbarItem key="1">
-                  <NavItemInner>Home</NavItemInner>
-                </NavbarItem>
-                <NavbarItem key="2">
-                  <NavItemInner>About</NavItemInner>
-                </NavbarItem>
+                <Link to="/">
+                  <NavbarItem key="1">
+                    <NavItemInner>Home</NavItemInner>
+                  </NavbarItem>
+                </Link>
+                <Link to="/test">
+                  <NavbarItem key="2">
+                    <NavItemInner>About</NavItemInner>
+                  </NavbarItem>
+                </Link>
                 <NavbarItem key="3">
                   <NavItemInner>Services</NavItemInner>
                 </NavbarItem>
