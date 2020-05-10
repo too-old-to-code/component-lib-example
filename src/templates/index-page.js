@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import logo from "../images/gatsby-icon.png"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import { Tween, Timeline } from "react-gsap"
+import { Tween, Timeline, Controls } from "react-gsap"
 
 import {
   MobileMenu,
@@ -14,6 +14,7 @@ import {
   Slide,
   CheckerDuo,
   PopIn,
+  BoxPanel,
   // MainArea
 } from "@custom-lib"
 
@@ -64,25 +65,30 @@ export const IndexPageTemplate = ({
           <div style={{ marginLeft: "100px" }}>
             <Timeline duration="2">
               <Tween
+                ease="Power2.easeIn"
                 delay="1"
                 from={{
-                  xPercent: -200,
+                  xPercent: -150,
                 }}
               >
                 <h1>Independent.</h1>
               </Tween>
               <Tween
+                ease="Power3.easeIn"
+                // ease="Bounce.easeOut"
                 delay="+=.5"
                 from={{
-                  xPercent: -200,
+                  xPercent: -150,
                 }}
               >
                 <h1>Trusted.</h1>
               </Tween>
               <Tween
+                // ease="Bounce.easeOut"
+                ease="Power4.easeIn"
                 delay="+=1"
                 from={{
-                  xPercent: -200,
+                  xPercent: -150,
                 }}
               >
                 <h1>Professional.</h1>
@@ -92,6 +98,21 @@ export const IndexPageTemplate = ({
         </div>
       }
     />
+    <BoxPanel>
+      As one of the most respected and trusted independent insurance brokers
+      based in Newport, South Wales we have been providing our clients with the
+      highest levels of service and expertise for over 35 years. As commercial
+      specialists, whatever your business, our highly trained team will get it
+      fully covered. We provide a personal service with the same consultant
+      working with you throughout the entire process. We search the market for
+      the best premiums to ensure you get the most out of your insurance. As
+      specialists in commercial insurance we can offer the care and technical
+      expertise your business needs to ensure it is always fully covered. Our
+      extensive relationships with the major insurers, as well as the more
+      specialist providers, means that we can provide you with the highest
+      possible levels of cover at the most competitive prices. We also provide
+      for the personal insurance needs of our commercial clients.
+    </BoxPanel>
     {categoryPitches &&
       categoryPitches.map((pitch, index) => {
         return (
