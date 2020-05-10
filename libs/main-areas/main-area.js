@@ -4,7 +4,7 @@ import styled from "styled-components"
 export const MainArea = styled.main.attrs(() => ({
   id: "main-area",
 }))`
-  zIndex:0,
+  zindex: 0;
   position: ${({ theme }) =>
     theme.navbar.position === "fixed" ? "fixed" : "relative"};
   top: ${({ theme }) =>
