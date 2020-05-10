@@ -33,6 +33,17 @@ collections:
                   { label: Description, name: description, widget: text },
                 ],
             }
+          - {
+              label: CategoryPitch,
+              name: categorypitch,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Text, name: text, widget: text },
+                  { label: Image, name: image, widget: image },
+                ],
+            }
       - file: "src/pages/test.md"
         label: "Test Page"
         name: "test-page"

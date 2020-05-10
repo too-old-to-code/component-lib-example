@@ -21,11 +21,9 @@ export const IndexPageTemplate = ({
   mainpitch,
 }) => (
   <div>
-    <Link to="/">Test</Link>
-
     <Parallax
       image={<Img fluid={image.childImageSharp.fluid} />}
-      height="60vh"
+      height="70vh"
       staticContent={
         <Slide
           duration="100"

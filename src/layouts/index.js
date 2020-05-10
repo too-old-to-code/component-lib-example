@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from "react"
 // import React, { useState } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-
+// import { gsap } from "gsap"
+// import { TextPlugin } from "gsap/TextPlugin"
+// gsap.registerPlugin(TextPlugin)
 // import Layout from "../components/layout"
 // import Image from "../components/image"
 // import SEO from "../components/seo"
@@ -119,12 +121,16 @@ const Layout = ({ children }) => {
                     <NavItemInner>About</NavItemInner>
                   </NavbarItem>
                 </Link>
-                <NavbarItem key="3">
-                  <NavItemInner>Services</NavItemInner>
-                </NavbarItem>
-                <NavbarItem key="4">
-                  <NavItemInner>Opportunities</NavItemInner>
-                </NavbarItem>
+                <a href="/">
+                  <NavbarItem key="3">
+                    <NavItemInner>Services</NavItemInner>
+                  </NavbarItem>
+                </a>
+                <a href="/test">
+                  <NavbarItem key="4">
+                    <NavItemInner>Opportunities</NavItemInner>
+                  </NavbarItem>
+                </a>
               </NavbarLayoutMulti>
             </Navbar>
           </div>

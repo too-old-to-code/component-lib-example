@@ -9,7 +9,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
-    // `gatsby-plugin-layout`,
+    `gatsby-plugin-layout`,
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       // This adds the images added through the cms
