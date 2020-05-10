@@ -10,5 +10,5 @@ mainpitch:
 categorypitch:
   - title: Construction
     text: Protecting against the cost of loss, damage, contract materials and more.
-    image: /img/2-man-on-construction-site-during-daytime-159306.jpg
+    image: /img/construction-min.jpg
 ---
