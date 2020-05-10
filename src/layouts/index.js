@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react"
 // import React, { useState } from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
+import Img from "gatsby-image"
 // import { gsap } from "gsap"
 // import { TextPlugin } from "gsap/TextPlugin"
 // gsap.registerPlugin(TextPlugin)
@@ -85,6 +86,18 @@ const Layout = ({ children }) => {
     }
   }, [burgerMenuIsActive])
 
+  const data = useStaticQuery(graphql`
+    query SiteLogoQuery {
+      placeholderImage: file(relativePath: { eq: "bpw-logo.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <ThemeProvider theme={theme}>
       <ScrollController>
@@ -107,6 +120,14 @@ const Layout = ({ children }) => {
               <NavbarLayoutMulti
                 itemsPosition="right"
                 logoPosition="left"
+                logo={
+                  <NavbarItem logo>
+                    <Img
+                      fluid={data.placeholderImage.childImageSharp.fluid}
+                      style={{ width: "70px" }}
+                    />
+                  </NavbarItem>
+                }
                 mobileMenu={
                   <MobileMenuWithContent isOpen={burgerMenuIsActive} />
                 }

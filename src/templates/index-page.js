@@ -41,7 +41,12 @@ export const IndexPageTemplate = ({
 }) => (
   <div>
     <Parallax
-      image={<Img fluid={image.childImageSharp.fluid} />}
+      image={
+        <Img
+          fluid={image.childImageSharp.fluid}
+          imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
+        />
+      }
       // image={<img src="https://placeimg.com/1000/1000/animals" alt="" />}
       height="70vh"
       staticContent={
