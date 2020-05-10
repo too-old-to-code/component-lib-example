@@ -4,7 +4,8 @@ import styled from "styled-components"
 export const MainArea = styled.main.attrs(() => ({
   id: "main-area",
 }))`
-  zindex: 0;
+  overflowscrolling: touch;
+  webkitoverflowscrolling: touch;
   position: ${({ theme }) =>
     theme.navbar.position === "fixed" ? "fixed" : "relative"};
   top: ${({ theme }) =>
