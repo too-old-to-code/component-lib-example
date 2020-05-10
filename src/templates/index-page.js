@@ -13,6 +13,7 @@ import {
   ArrowPanel,
   Slide,
   CheckerDuo,
+  PopIn,
   // MainArea
 } from "@custom-lib"
 
@@ -91,9 +92,8 @@ export const IndexPageTemplate = ({
         return (
           <CheckerDuo
             image={<Img fluid={pitch.image.childImageSharp.fluid} />}
-            height="500px"
+            height="350px"
             textPosition={index % 2 === 0 ? "right" : "left"}
-            // backgroundColor="rgba(30,144,255, .85)"
             backgroundColor="rgba(50,70,80, .85)"
           >
             <div
@@ -105,10 +105,13 @@ export const IndexPageTemplate = ({
                 maxWidth: "70%",
                 color: "white",
                 fontSize: "1.2em",
+                padding: "30px 0",
               }}
             >
-              <h2 style={{ margin: 0 }}>{pitch.title}</h2>
-              <p>{pitch.text}</p>
+              <PopIn>
+                <h2 style={{ margin: 0 }}>{pitch.title}</h2>
+                <p>{pitch.text}</p>
+              </PopIn>
             </div>
           </CheckerDuo>
         )

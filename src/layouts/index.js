@@ -111,22 +111,37 @@ const Layout = ({ children }) => {
                   <MobileMenuWithContent isOpen={burgerMenuIsActive} />
                 }
               >
-                <Link to="/">
+                <Link
+                  to="/"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <NavbarItem key="1">
                     <NavItemInner>Home</NavItemInner>
                   </NavbarItem>
                 </Link>
-                <Link to="/test">
+                <Link
+                  to="/test"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <NavbarItem key="2">
                     <NavItemInner>About</NavItemInner>
                   </NavbarItem>
                 </Link>
-                <a href="/">
-                  <NavbarItem key="3">
+                <a
+                  href="/"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <NavbarItem
+                    key="3"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
                     <NavItemInner>Services</NavItemInner>
                   </NavbarItem>
                 </a>
-                <a href="/test">
+                <a
+                  href="/test"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
                   <NavbarItem key="4">
                     <NavItemInner>Opportunities</NavItemInner>
                   </NavbarItem>

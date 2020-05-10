@@ -12,7 +12,7 @@ const CheckerDuoContainer = styled.div`
       content: "";
       flex: 1;
     }
-  height ${props => props.height || "200px"};
+    height ${props => props.height || "200px"};
   }
 `
 
