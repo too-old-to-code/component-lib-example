@@ -1,7 +1,7 @@
-import "./burger-menu.scss";
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import "./burger-menu.scss"
+import React from "react"
+import styled from "styled-components"
+import PropTypes from "prop-types"
 
 const Menu = styled.button.attrs(({ isActive, burgerStyle }) => ({
   className: `hamburger hamburger--${burgerStyle || "spin"} ${
@@ -10,7 +10,7 @@ const Menu = styled.button.attrs(({ isActive, burgerStyle }) => ({
   type: "button",
 }))`
   z-index: 200 !important;
-  // position: ${(props) => (props.fixed ? "fixed" : "absolute")};
+  // position: ${props => (props.fixed ? "fixed" : "absolute")};
   position: ${({ theme }) =>
     theme?.navbar?.position === "relative" ? "absolute" : "fixed"};
   ${({ theme }) => `${theme?.hamburger?.position}: 0;` || "left: 0;"}
@@ -18,16 +18,23 @@ const Menu = styled.button.attrs(({ isActive, burgerStyle }) => ({
   // background-color: black;
   background-color: ${({ theme }) =>
     theme?.hamburger?.background || "transparent"};
+
   @media (min-width: ${({ theme }) => theme?.breakpoints?.minDesktop}) {
     display: none !important;
   }
   & .hamburger-inner, .hamburger-inner:before, .hamburger-inner:after  {
     background-color: ${({ theme }) =>
       theme?.hamburger?.color || "white"} !important;
+    // transition: background-color .3s;
   }
-`;
+  .second-color & .hamburger-inner,
+  .second-color & .hamburger-inner:before,
+  .second-color & .hamburger-inner:after {
+    background-color: ${({ theme }) => theme.hamburgerAlt?.color} !important;
+  }
+`
 
-export const BurgerMenu = (props) => {
+export const BurgerMenu = props => {
   return (
     <Menu
       onClick={props.toggleOpen}
@@ -38,11 +45,11 @@ export const BurgerMenu = (props) => {
         <span className="hamburger-inner"></span>
       </span>
     </Menu>
-  );
-};
+  )
+}
 
 BurgerMenu.propTypes = {
   toggleOpen: PropTypes.func.isRequired,
   isActive: PropTypes.bool.isRequired,
   burgerStyle: PropTypes.string,
-};
+}

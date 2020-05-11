@@ -39,6 +39,7 @@ export const IndexPageTemplate = ({
   subheading,
   image,
   categoryPitches,
+  introduction,
 }) => (
   <div>
     <Parallax
@@ -98,21 +99,7 @@ export const IndexPageTemplate = ({
         </div>
       }
     />
-    <BoxPanel>
-      As one of the most respected and trusted independent insurance brokers
-      based in Newport, South Wales we have been providing our clients with the
-      highest levels of service and expertise for over 35 years. As commercial
-      specialists, whatever your business, our highly trained team will get it
-      fully covered. We provide a personal service with the same consultant
-      working with you throughout the entire process. We search the market for
-      the best premiums to ensure you get the most out of your insurance. As
-      specialists in commercial insurance we can offer the care and technical
-      expertise your business needs to ensure it is always fully covered. Our
-      extensive relationships with the major insurers, as well as the more
-      specialist providers, means that we can provide you with the highest
-      possible levels of cover at the most competitive prices. We also provide
-      for the personal insurance needs of our commercial clients.
-    </BoxPanel>
+    <BoxPanel dangerouslySetInnerHTML={{ __html: introduction }}></BoxPanel>
     {categoryPitches &&
       categoryPitches.map((pitch, index) => {
         return (
@@ -155,6 +142,7 @@ const IndexPage = ({ data }) => {
       subheading={frontmatter.subheading}
       image={frontmatter.image}
       categoryPitches={frontmatter.categorypitch}
+      introduction={frontmatter.introduction}
     />
   )
 }
@@ -173,6 +161,7 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
+        introduction
         categorypitch {
           text
           title

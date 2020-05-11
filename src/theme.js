@@ -78,14 +78,17 @@ export const theme = {
     `,
   },
   menu: {
-    textColor: "green",
-    hoverTextColor: "yellow",
-    background: "linear-gradient(to left, #243B55, #141E30);",
+    textColor: "white",
+    // hoverTextColor: "yellow",
+    background: "#06426A",
   },
   hamburger: {
-    position: "left", // left or right
-    color: "black",
+    position: "right", // left or right
+    color: "white",
     background: null,
+  },
+  hamburgerAlt: {
+    color: "black",
   },
   navbarAlt: {
     textColor: "#303030",
