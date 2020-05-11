@@ -50,7 +50,7 @@ export const IndexPageTemplate = ({
         />
       }
       // image={<img src="https://placeimg.com/1000/1000/animals" alt="" />}
-      height="70vh"
+      height="85vh"
       staticContent={
         <div
           style={{
