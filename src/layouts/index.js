@@ -172,17 +172,17 @@ const Layout = ({ children }) => {
           </div>
         </ScrollScene>
       </ScrollController>
-      <MainArea
-        forceToTop
-        style={{ overflowScrolling: "touch", WebkitOverflowScrolling: "touch" }}
-      >
-        <div id="top-flag"></div>
-        {children}
-      </MainArea>
+      <div id="top-flag"></div>
+      {children}
     </ThemeProvider>
   )
 }
 
+// <MainArea
+//   forceToTop
+//   style={{ overflowScrolling: "touch", WebkitOverflowScrolling: "touch" }}
+// >
+// </MainArea>
 // const IndexPage = () => (
 //   <Layout>
 //     <SEO title="Home" />
