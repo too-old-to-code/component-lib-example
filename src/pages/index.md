@@ -24,4 +24,5 @@ categorypitch:
     text: We insure some of the largest haulage, plant operators and coach & bus
       firms.
     image: /img/layerslider1.jpg
+introduction:
 ---
