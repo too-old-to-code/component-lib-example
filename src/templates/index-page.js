@@ -4,6 +4,7 @@ import logo from "../images/gatsby-icon.png"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { Tween, Timeline, Controls } from "react-gsap"
+import styled from "styled-components"
 
 import {
   MobileMenu,
@@ -15,23 +16,33 @@ import {
   CheckerDuo,
   PopIn,
   BoxPanel,
+  TwoPack,
   // MainArea
 } from "@custom-lib"
 
-const stuffs = [
-  {
-    title: "Property Owners",
-    blurb:
-      "We cover all property owners insurance from commercial to buy-to-let properties.",
-    image: null,
-  },
-  {
-    title: "Motor Trade",
-    blurb:
-      "Cover for all types of Motor Trade businesses, from small workshops up to main dealerships.",
-    image: null,
-  },
-]
+const ImageText = styled.div`
+  padding-top: 90px;
+  margin-left: 50px;
+  font-family: "Teko";
+  font-size: 4em;
+  color: rgb(160, 216, 123);
+  text-shadow: 1px 1px 1px black;
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
+    margin-left: 20px;
+    font-size: 2.5em;
+  }
+`
+
+const ActionButton = styled.button`
+  padding: 10px 40px;
+  background-color: #06426a;
+  color: white;
+  border: none;
+  font-size: 2em;
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
+    font-size: 1.5em;
+  }
+`
 
 export const IndexPageTemplate = ({
   title,
@@ -50,7 +61,7 @@ export const IndexPageTemplate = ({
         />
       }
       // image={<img src="https://placeimg.com/1000/1000/animals" alt="" />}
-      height="85vh"
+      height="90vh"
       staticContent={
         <div
           style={{
@@ -63,39 +74,56 @@ export const IndexPageTemplate = ({
             alignItems: "center",
           }}
         >
-          <div style={{ marginLeft: "100px" }}>
-            <Timeline duration="2">
-              <Tween
-                ease="Power2.easeIn"
-                delay="1"
-                from={{
-                  xPercent: -150,
-                }}
-              >
-                <h1>Independent.</h1>
-              </Tween>
-              <Tween
-                ease="Power3.easeIn"
-                // ease="Bounce.easeOut"
-                delay="+=.5"
-                from={{
-                  xPercent: -150,
-                }}
-              >
-                <h1>Trusted.</h1>
-              </Tween>
-              <Tween
-                // ease="Bounce.easeOut"
-                ease="Power4.easeIn"
-                delay="+=1"
-                from={{
-                  xPercent: -150,
-                }}
-              >
-                <h1>Professional.</h1>
-              </Tween>
-            </Timeline>
-          </div>
+          <TwoPack
+            style={{ width: "100%" }}
+            one={
+              <ImageText>
+                <Timeline duration="4">
+                  <Tween
+                    ease="Power2.easeIn"
+                    duration="0.5"
+                    from={{
+                      xPercent: -150,
+                    }}
+                  >
+                    <div>Independent.</div>
+                  </Tween>
+                  <Tween
+                    ease="Power3.easeIn"
+                    duration="0.5"
+                    from={{
+                      xPercent: -150,
+                    }}
+                  >
+                    <div>Trusted.</div>
+                  </Tween>
+                  <Tween
+                    ease="Power4.easeIn"
+                    duration="0.5"
+                    from={{
+                      xPercent: -150,
+                    }}
+                  >
+                    <div>Professional.</div>
+                  </Tween>
+                  <Tween
+                    ease="Power4.easeIn"
+                    duration="1"
+                    from={{
+                      opacity: 0,
+                    }}
+                  >
+                    <div style={{ color: "white" }}>Insurance brokers.</div>
+                  </Tween>
+                </Timeline>
+              </ImageText>
+            }
+            two={
+              <BoxPanel>
+                <ActionButton>Get Quote</ActionButton>
+              </BoxPanel>
+            }
+          />
         </div>
       }
     />

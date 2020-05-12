@@ -24,16 +24,6 @@ collections:
           - { label: Heading, name: heading, widget: string }
           - { label: Subheading, name: subheading, widget: string }
           - {
-              label: Mainpitch,
-              name: mainpitch,
-              widget: object,
-              fields:
-                [
-                  { label: Title, name: title, widget: string },
-                  { label: Description, name: description, widget: text },
-                ],
-            }
-          - {
               label: CategoryPitch,
               name: categorypitch,
               widget: list,
@@ -44,7 +34,21 @@ collections:
                   { label: Image, name: image, widget: image },
                 ],
             }
-          - { label: Introduction, name: introduction, widget: markdown }
+          - {
+              label: Introduction,
+              name: introduction,
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  {
+                    label: Text,
+                    name: text,
+                    widget: list,
+                    fields: { label: Paragraph, name: paragraph, widget: text },
+                  },
+                ],
+            }
       - file: "src/pages/test.md"
         label: "Test Page"
         name: "test-page"

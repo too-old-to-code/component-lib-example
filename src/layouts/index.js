@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
+import "../styles/global.scss"
 // import React, { useState } from "react"
-import { Link, useStaticQuery } from "gatsby"
+import { Link, useStaticQuery, navigate } from "gatsby"
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
 // import { gsap } from "gsap"
@@ -46,7 +47,26 @@ NavItemInner.propTypes = {
 const MobileMenuWithContent = ({ isOpen }) => {
   return (
     <MobileMenu isOpen={isOpen}>
-      <div>Home</div>
+      <div
+        onClick={() => navigate()}
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          display: "block",
+        }}
+      >
+        Home
+      </div>
+      <Link
+        to="/test"
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          display: "block",
+        }}
+      >
+        About
+      </Link>
       <div>About</div>
       <div>Services</div>
       <div>Opportunities</div>
