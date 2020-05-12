@@ -45,7 +45,8 @@ collections:
                     label: Text,
                     name: text,
                     widget: list,
-                    fields: { label: Paragraph, name: paragraph, widget: text },
+                    fields:
+                      [{ label: Paragraph, name: paragraph, widget: text }],
                   },
                 ],
             }
