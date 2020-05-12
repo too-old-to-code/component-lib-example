@@ -42,6 +42,12 @@ collections:
                 [
                   { label: Heading, name: heading, widget: string },
                   {
+                    label: Test,
+                    name: test,
+                    widget: list,
+                    field: { label: Subtest, name: subtest, widget: text },
+                  },
+                  {
                     label: Text,
                     name: text,
                     widget: list,

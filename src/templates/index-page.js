@@ -50,7 +50,7 @@ export const IndexPageTemplate = ({
   subheading,
   image,
   categoryPitches,
-  // introduction,
+  introduction,
 }) => (
   <div>
     <Parallax
@@ -127,8 +127,13 @@ export const IndexPageTemplate = ({
         </div>
       }
     />
+    <BoxPanel>
+      <h2>{introduction.heading}</h2>
+      {introduction.text.map(({ paragraph }) => {
+        return <p>{paragraph}</p>
+      })}
+    </BoxPanel>
     {categoryPitches &&
-      // <BoxPanel dangerouslySetInnerHTML={{ __html: introduction }}></BoxPanel>
       categoryPitches.map((pitch, index) => {
         return (
           <CheckerDuo
@@ -185,11 +190,16 @@ IndexPage.propTypes = {
 
 export default IndexPage
 
-// introduction
 export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
+        introduction {
+          heading
+          text {
+            paragraph
+          }
+        }
         categorypitch {
           text
           title
