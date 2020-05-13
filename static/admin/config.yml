@@ -6,6 +6,16 @@ media_folder: static/img # Media files will be stored in the repo under images/u
 public_folder: /img
 
 collections:
+  - name: "settings"
+    label: "Settings"
+    file: "src/data/settings.yml"
+    fields:
+      - {
+          label: "Social Media",
+          name: "socialmedia",
+          widget: "list",
+          field: { label: Company, name: company, widget: string },
+        }
   - name: "pages"
     label: "Pages"
     files:
