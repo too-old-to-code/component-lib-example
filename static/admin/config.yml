@@ -9,7 +9,7 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/sitewide.md"
+      - file: "src/pages/sitewide.md"
         label: "Site Data"
         name: "site-data"
         fields:
