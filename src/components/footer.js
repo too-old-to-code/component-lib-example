@@ -8,7 +8,7 @@ const StyledFooter = styled.footer`
   background-color: #06426a;
 `
 
-export const Footer = () => {
+export const Footer = props => {
   return (
     <StyledFooter>
       <div style={{ color: "white" }}>
@@ -25,12 +25,11 @@ export const Footer = () => {
           justifyContent: "center",
         }}
       >
-        <SocialIcon
-          fgColor="white"
-          url="http://twitter.com/jaketrent"
-          style={{ margin: "10px" }}
-        />
-        <SocialIcon fgColor="white" url="http://facebook.com/jaketrent" />
+        {props.siteData.socialmedia.map(sm => {
+          return (
+            <SocialIcon fgColor="white" url={sm} style={{ margin: "10px" }} />
+          )
+        })}
       </div>
     </StyledFooter>
   )

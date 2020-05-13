@@ -121,9 +121,10 @@ const Layout = ({ children }) => {
           }
         }
       }
-      markdownRemark(frontmatter: { templateKey: { eq: "sitewide" } }) {
-        frontmatter {
-          title
+      sitedata: allDataYaml(filter: {}) {
+        nodes {
+          id
+          socialmedia
         }
       }
     }
@@ -207,7 +208,7 @@ const Layout = ({ children }) => {
       <div id="top-flag"></div>
       {children}
       <div>
-        <Footer />
+        <Footer siteData={data.sitedata.nodes[0]} />
       </div>
     </ThemeProvider>
   )

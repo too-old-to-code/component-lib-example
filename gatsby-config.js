@@ -10,6 +10,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-layout`,
+    `gatsby-transformer-yaml`,
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       // This adds the images added through the cms
@@ -25,6 +26,14 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    // get the settings yml file
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "settings",
+        path: `${__dirname}/src/data`,
       },
     },
     // This is where the markdown pages will be.
