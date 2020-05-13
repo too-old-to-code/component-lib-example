@@ -15,11 +15,11 @@ const Box = styled.div`
 export const TwoPack = props => {
   return (
     <div className="row" style={{ ...props.style, margin: 0 }}>
-      <div className="col-xs-12 col-sm-6">
-        <Box>{props.one}</Box>
+      <div className={`col-xs-12 col-sm-12 col-md-${props.division[0]}`}>
+        {props.one}
       </div>
-      <div className="col-xs-12 col-sm-6">
-        <Box>{props.two}</Box>
+      <div className={`col-xs-12 col-sm-12 col-md-${props.division[1]}`}>
+        {props.two}
       </div>
     </div>
   )
@@ -29,4 +29,9 @@ TwoPack.propTypes = {
   one: PropTypes.any,
   two: PropTypes.any,
   style: PropTypes.any,
+  division: PropTypes.array,
+}
+
+TwoPack.defaultProps = {
+  division: [6, 6],
 }

@@ -4,6 +4,8 @@ import "../styles/global.scss"
 import { Link, useStaticQuery, navigate } from "gatsby"
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
+import { Footer } from "../components/footer"
+import { IndexPageTemplate } from "../templates/index-page"
 // import { gsap } from "gsap"
 // import { TextPlugin } from "gsap/TextPlugin"
 // gsap.registerPlugin(TextPlugin)
@@ -47,8 +49,7 @@ NavItemInner.propTypes = {
 const MobileMenuWithContent = ({ isOpen }) => {
   return (
     <MobileMenu isOpen={isOpen}>
-      <div
-        onClick={() => navigate()}
+      <Link
         style={{
           textDecoration: "none",
           color: "inherit",
@@ -56,7 +57,7 @@ const MobileMenuWithContent = ({ isOpen }) => {
         }}
       >
         Home
-      </div>
+      </Link>
       <Link
         to="/test"
         style={{
@@ -81,6 +82,11 @@ MobileMenuWithContent.propTypes = {
 const Layout = ({ children }) => {
   const [burgerMenuIsActive, burgerMenuToggleActive] = useState(false)
   const openMenu = useRef()
+
+  // close the menu when the page changes
+  useEffect(() => {
+    burgerMenuToggleActive(false)
+  }, [children])
 
   // Close the mobile menu if the screen is resized while the menu is open
   useEffect(() => {
@@ -115,9 +121,16 @@ const Layout = ({ children }) => {
           }
         }
       }
+      markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+        frontmatter {
+          heading
+          subheading
+        }
+      }
     }
   `)
 
+  console.log(data)
   return (
     <ThemeProvider theme={theme}>
       <ScrollController>
@@ -194,6 +207,9 @@ const Layout = ({ children }) => {
       </ScrollController>
       <div id="top-flag"></div>
       {children}
+      <div>
+        <Footer />
+      </div>
     </ThemeProvider>
   )
 }

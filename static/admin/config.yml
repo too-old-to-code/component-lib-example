@@ -9,6 +9,17 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
+      - file: "src/sitewide.md"
+        label: "Site Data"
+        name: "site-data"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "site-data",
+            }
+          - { label: Title, name: title, widget: string }
       - file: "src/pages/index.md"
         label: "Landing Page"
         name: "index-page"
@@ -41,12 +52,6 @@ collections:
               fields:
                 [
                   { label: Heading, name: heading, widget: string },
-                  {
-                    label: Test,
-                    name: test,
-                    widget: list,
-                    field: { label: Subtest, name: subtest, widget: text },
-                  },
                   {
                     label: Text,
                     name: text,

@@ -5,6 +5,8 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { Tween, Timeline, Controls } from "react-gsap"
 import styled from "styled-components"
+import { Container, Row, Col, Visible } from "react-grid-system"
+import { setConfiguration } from "react-grid-system"
 
 import {
   MobileMenu,
@@ -20,8 +22,13 @@ import {
   // MainArea
 } from "@custom-lib"
 
+setConfiguration({
+  gridColumns: 12,
+  breakpoints: [576, 900, 1024, 1200],
+})
+
 const ImageText = styled.div`
-  padding-top: 90px;
+  padding-top: calc(${({ theme }) => theme?.navbar?.height} + 20px);
   margin-left: 50px;
   font-family: "Teko";
   font-size: 4em;
@@ -44,6 +51,60 @@ const ActionButton = styled.button`
   }
 `
 
+const ColumnText = styled.div`
+  column-count: 2;
+  column-gap: 40px;
+  padding: 0 40px;
+  color: #708080;
+  p {
+    line-height: 1.4em;
+    margin: 20px 0 !important;
+    &:first-child {
+      margin-top: 0px !important;
+    }
+  }
+  // @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
+  @media (max-width: 900px) {
+    column-count: 1;
+    padding: 0;
+    text-align: justify;
+  }
+`
+
+const BulletPointList = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  ul {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: left;
+    margin-left: 20px;
+    justify-content: space-around;
+    li {
+      margin: 3px 0;
+    }
+  }
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
+    margin: 30px 0;
+    ul {
+      margin-left: 0;
+    }
+  }
+`
+
+const HeadedColumnText = ({ heading, children }) => {
+  return (
+    <React.Fragment>
+      <h2 style={{ textAlign: "center", color: "#0A99D8" }}>{heading}</h2>
+      <ColumnText>{children}</ColumnText>
+    </React.Fragment>
+  )
+}
+
 export const IndexPageTemplate = ({
   title,
   heading,
@@ -60,7 +121,6 @@ export const IndexPageTemplate = ({
           imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
         />
       }
-      // image={<img src="https://placeimg.com/1000/1000/animals" alt="" />}
       height="90vh"
       staticContent={
         <div
@@ -70,13 +130,12 @@ export const IndexPageTemplate = ({
             bottom: 0,
             left: 0,
             right: 0,
-            display: "flex",
-            alignItems: "center",
+            // display: "flex",
+            // alignItems: "center",
           }}
         >
-          <TwoPack
-            style={{ width: "100%" }}
-            one={
+          <Row style={{ height: "100%" }}>
+            <Col xs={12} sm={6}>
               <ImageText>
                 <Timeline duration="4">
                   <Tween
@@ -86,52 +145,79 @@ export const IndexPageTemplate = ({
                       xPercent: -150,
                     }}
                   >
-                    <div>Independent.</div>
+                    <div>Independent</div>
                   </Tween>
                   <Tween
-                    ease="Power3.easeIn"
+                    ease="Power2.easeIn"
                     duration="0.5"
                     from={{
                       xPercent: -150,
                     }}
                   >
-                    <div>Trusted.</div>
+                    <div>Trusted</div>
                   </Tween>
                   <Tween
-                    ease="Power4.easeIn"
+                    ease="Power2.easeIn"
                     duration="0.5"
                     from={{
                       xPercent: -150,
                     }}
                   >
-                    <div>Professional.</div>
+                    <div>Professional</div>
                   </Tween>
                   <Tween
-                    ease="Power4.easeIn"
+                    ease="Power2.easeIn"
                     duration="1"
                     from={{
                       opacity: 0,
                     }}
                   >
-                    <div style={{ color: "white" }}>Insurance brokers.</div>
+                    <div style={{ color: "white" }}>Insurance brokers</div>
                   </Tween>
                 </Timeline>
               </ImageText>
-            }
-            two={
-              <BoxPanel>
+            </Col>
+            <Col xs={12} sm={6}>
+              <BoxPanel
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "100%",
+                }}
+              >
                 <ActionButton>Get Quote</ActionButton>
               </BoxPanel>
-            }
-          />
+            </Col>
+          </Row>
         </div>
       }
     />
     <BoxPanel>
-      <h2>{introduction.heading}</h2>
-      {introduction.text.map(({ paragraph }) => {
-        return <p>{paragraph}</p>
-      })}
+      <Row>
+        <Col md={8} sm={6} xs={12}>
+          <HeadedColumnText heading={introduction.heading}>
+            {introduction.text.map(({ paragraph }) => (
+              <p>{paragraph}</p>
+            ))}
+          </HeadedColumnText>
+        </Col>
+        <Col md={4} sm={6} xs={12}>
+          <BulletPointList
+            style={{ backgroundColor: "#06426A", color: "#FCFAFF" }}
+          >
+            <h3 style={{ marginBottom: 0 }}>Why pick us?</h3>
+            <ul>
+              <li>Service led business</li>
+              <li>Independent and trusted</li>
+              <li>Highly competitive premiums</li>
+              <li>Personal consultants</li>
+              <li>Dedicated claims assistance</li>
+              <li>Finance Available</li>
+            </ul>
+          </BulletPointList>
+        </Col>
+      </Row>
     </BoxPanel>
     {categoryPitches &&
       categoryPitches.map((pitch, index) => {
