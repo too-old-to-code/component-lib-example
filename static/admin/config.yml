@@ -10,6 +10,8 @@ collections:
     label: "Settings"
     files:
       - file: "src/data/settings.yml"
+        label: "Site settings"
+        name: "sitesettings"
         fields:
           - {
               label: "Social Media",
