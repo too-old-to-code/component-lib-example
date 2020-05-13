@@ -11,13 +11,13 @@ collections:
     files:
       - file: "src/pages/sitewide.md"
         label: "Site Data"
-        name: "site-data"
+        name: "sitewide"
         fields:
           - {
               label: "Template Key",
               name: "templateKey",
               widget: "hidden",
-              default: "site-data",
+              default: "sitewide",
             }
           - { label: Title, name: title, widget: string }
       - file: "src/pages/index.md"

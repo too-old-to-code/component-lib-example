@@ -52,6 +52,8 @@ exports.createPages = ({ actions, graphql }) => {
 
     const posts = result.data.allMarkdownRemark.edges
     posts.forEach(edge => {
+      console.log(edge.node.frontmatter.templateKey)
+      if (edge.node.frontmatter.templateKey === "site-wide") return
       const id = edge.node.id
       createPage({
         path: edge.node.fields.slug,
