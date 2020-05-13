@@ -1,0 +1,3 @@
+---
+title: This should work
+---
