@@ -121,10 +121,9 @@ const Layout = ({ children }) => {
           }
         }
       }
-      markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+      markdownRemark(frontmatter: { templateKey: { eq: "sitewide" } }) {
         frontmatter {
-          heading
-          subheading
+          title
         }
       }
     }
