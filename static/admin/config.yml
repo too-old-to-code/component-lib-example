@@ -22,17 +22,6 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/pages/sitewide.md"
-        label: "Site Data"
-        name: "sitewide"
-        fields:
-          - {
-              label: "Template Key",
-              name: "templateKey",
-              widget: "hidden",
-              default: "sitewide",
-            }
-          - { label: Title, name: title, widget: string }
       - file: "src/pages/index.md"
         label: "Landing Page"
         name: "index-page"
