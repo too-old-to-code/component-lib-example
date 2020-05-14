@@ -38,4 +38,14 @@ ourTeam:
         based. Our ongoing dedication to the Investors in People Standard is
         evidence of our commitment to all our staff and clients, as well as our
         goal of continuous improvement in everything we do.
+profiles:
+  - image: /img/wiggins-thumb.jpg
+    name: Paul Wiggins
+    blurb: Some stuff here
+  - image: /img/evans-thumb.jpg
+    name: Jason Evans
+    blurb: Stuff here
+  - image: /img/obrien-thumb.jpg
+    name: Ian O'Brian
+    blurb: Stuff here
 ---
