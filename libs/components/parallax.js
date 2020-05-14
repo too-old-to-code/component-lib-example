@@ -22,7 +22,7 @@ const ParallaxStyled = styled.div`
       right: 0;
       text-align: center;
       color: white;
-      height: 118%;
+      height: 100%;
 
       > div {
         height: 100%;
@@ -55,13 +55,13 @@ const ParallaxStyled = styled.div`
 export const Parallax = props => (
   <ParallaxStyled hideOnMobile={props.hideOnMobile}>
     <ScrollController>
-      <ScrollScene duration="300%" triggerHook="onEnter">
+      <ScrollScene duration="200%" triggerHook={props.triggerHook}>
         <Timeline
           wrapper={
             <div className="parallax" style={{ height: props.height }} />
           }
         >
-          <Tween from={{ yPercent: -30 }} to={{ yPercent: 0 }}>
+          <Tween from={{ yPercent: 0 }} to={{ yPercent: 30 }}>
             <div className="image-wrapper">{props.image}</div>
           </Tween>
         </Timeline>
@@ -76,8 +76,10 @@ Parallax.propTypes = {
   staticContent: PropTypes.any,
   image: PropTypes.any,
   hideOnMobile: PropTypes.bool,
+  triggerHook: PropTypes.string,
 }
 
 Parallax.defaultProps = {
   staticContent: "",
+  triggerHook: "onLeave",
 }

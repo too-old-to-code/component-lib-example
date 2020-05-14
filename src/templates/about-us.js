@@ -105,7 +105,7 @@ const HeadedColumnText = ({ heading, children }) => {
   )
 }
 
-export const IndexPageTemplate = ({
+export const AboutUsPageTemplate = ({
   title,
   heading,
   subheading,
@@ -146,34 +146,7 @@ export const IndexPageTemplate = ({
                       xPercent: -150,
                     }}
                   >
-                    <div>Independent</div>
-                  </Tween>
-                  <Tween
-                    ease="Power2.easeIn"
-                    duration="0.5"
-                    from={{
-                      xPercent: -150,
-                    }}
-                  >
-                    <div>Trusted</div>
-                  </Tween>
-                  <Tween
-                    ease="Power2.easeIn"
-                    duration="0.5"
-                    from={{
-                      xPercent: -150,
-                    }}
-                  >
-                    <div>Professional</div>
-                  </Tween>
-                  <Tween
-                    ease="Power2.easeIn"
-                    duration="1"
-                    from={{
-                      opacity: 0,
-                    }}
-                  >
-                    <div style={{ color: "white" }}>Insurance brokers</div>
+                    <div>Our people offer unrivalled service and knowledge</div>
                   </Tween>
                 </Timeline>
               </ImageText>
@@ -279,7 +252,7 @@ IndexPage.propTypes = {
 export default IndexPage
 
 export const pageQuery = graphql`
-  query IndexPageTemplate {
+  query AboutUsPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         introduction {

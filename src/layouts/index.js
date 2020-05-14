@@ -59,7 +59,7 @@ const MobileMenuWithContent = ({ isOpen }) => {
         Home
       </Link>
       <Link
-        to="/test"
+        to="/about-us"
         style={{
           textDecoration: "none",
           color: "inherit",
@@ -68,9 +68,36 @@ const MobileMenuWithContent = ({ isOpen }) => {
       >
         About
       </Link>
-      <div>About</div>
-      <div>Services</div>
-      <div>Opportunities</div>
+      <Link
+        to="/services"
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          display: "block",
+        }}
+      >
+        Services
+      </Link>
+      <Link
+        to="/our-clients"
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          display: "block",
+        }}
+      >
+        Clients
+      </Link>
+      <Link
+        to="/contact-us"
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          display: "block",
+        }}
+      >
+        Contact Us
+      </Link>
     </MobileMenu>
   )
 }
@@ -174,15 +201,26 @@ const Layout = ({ children }) => {
                   </NavbarItem>
                 </Link>
                 <Link
-                  to="/test"
+                  to="/about-us"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <NavbarItem key="2">
                     <NavItemInner>About</NavItemInner>
                   </NavbarItem>
                 </Link>
-                <a
-                  href="/"
+                <Link
+                  to="/our-clients"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <NavbarItem
+                    key="3"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <NavItemInner>Clients</NavItemInner>
+                  </NavbarItem>
+                </Link>
+                <Link
+                  to="/services"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <NavbarItem
@@ -191,15 +229,15 @@ const Layout = ({ children }) => {
                   >
                     <NavItemInner>Services</NavItemInner>
                   </NavbarItem>
-                </a>
-                <a
-                  href="/test"
+                </Link>
+                <Link
+                  to="/contact-us"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <NavbarItem key="4">
-                    <NavItemInner>Opportunities</NavItemInner>
+                    <NavItemInner>Contact Us</NavItemInner>
                   </NavbarItem>
-                </a>
+                </Link>
               </NavbarLayoutMulti>
             </Navbar>
           </div>

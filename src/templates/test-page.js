@@ -32,21 +32,7 @@ export const IndexPageTemplate = ({
           fromDirection="right"
           startPercent="100"
           endPercent="0"
-        >
-          <h1>This is the test page</h1>
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet
-            facere vitae rem optio, provident voluptatem ut ipsum non at dolor,
-            quis nihil! Voluptatibus itaque, aspernatur doloribus tempore facere
-            sunt, eveniet!
-          </div>
-          <div>
-            Eligendi obcaecati quidem illum laudantium, assumenda blanditiis.
-            Iusto tempore eaque unde, consectetur voluptates iure earum
-            blanditiis aliquam dolore asperiores officia non harum deleniti
-            nostrum repellendus est nobis sunt nemo quibusdam!
-          </div>
-        </Slide>
+        ></Slide>
       }
     />
     <Parallax
