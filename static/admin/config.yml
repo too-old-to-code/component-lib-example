@@ -79,6 +79,17 @@ collections:
                   },
                 ],
             }
+          - {
+              label: Profiles,
+              name: profiles,
+              widget: list,
+              fields:
+                [
+                  { label: Image, name: image, widget: image },
+                  { label: Name, name: name, widget: string },
+                  { label: Blurb, name: blurb, widget: text },
+                ],
+            }
       - file: "src/pages/index.md"
         label: "Landing Page"
         name: "index-page"

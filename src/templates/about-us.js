@@ -109,6 +109,7 @@ export const AboutUsPageTemplate = ({
   subheading,
   image,
   aboutUs,
+  ourTeam,
 }) => (
   <div>
     <Parallax
@@ -141,7 +142,7 @@ export const AboutUsPageTemplate = ({
         </div>
       }
     />
-    {/*<BoxPanel>
+    <BoxPanel>
       <Row style={{ height: "100%" }}>
         <Col xs={12} sm={8} offset={{ sm: 2 }}>
           <HeadedColumnText heading={aboutUs.heading}>
@@ -151,7 +152,7 @@ export const AboutUsPageTemplate = ({
           </HeadedColumnText>
         </Col>
       </Row>
-    </BoxPanel>*/}
+    </BoxPanel>
     <BoxPanel
       style={{
         backgroundColor: "#06426a",
@@ -160,6 +161,17 @@ export const AboutUsPageTemplate = ({
       }}
     >
       <h3>Our Team</h3>
+    </BoxPanel>
+    <BoxPanel>
+      <Row style={{ height: "100%" }}>
+        <Col xs={12} sm={8} offset={{ sm: 2 }}>
+          <HeadedColumnText heading={ourTeam.heading}>
+            {ourTeam.text.map(({ paragraph }) => (
+              <p>{paragraph}</p>
+            ))}
+          </HeadedColumnText>
+        </Col>
+      </Row>
     </BoxPanel>
   </div>
 )
@@ -174,6 +186,7 @@ const AboutUsPage = ({ data }) => {
       subheading={frontmatter.subheading}
       image={frontmatter.image}
       aboutUs={frontmatter.aboutUs}
+      ourTeam={frontmatter.ourTeam}
     />
   )
 }
@@ -192,6 +205,18 @@ export const pageQuery = graphql`
   query AboutUsPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "about-us" } }) {
       frontmatter {
+        aboutUs {
+          heading
+          text {
+            paragraph
+          }
+        }
+        ourTeam {
+          heading
+          text {
+            paragraph
+          }
+        }
         image {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
@@ -205,9 +230,3 @@ export const pageQuery = graphql`
     }
   }
 `
-// aboutUs {
-//   heading
-//   text {
-//     paragraph
-//   }
-// }
