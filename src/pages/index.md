@@ -10,11 +10,11 @@ mainpitch:
 categorypitch:
   - title: Construction
     text: Protecting against the cost of loss, damage, contract materials and more.
-    image: /img/construction-min.jpg
+    image: /img/construction-small.jpg
   - title: Motor Trade
     text: Cover for all types of Motor Trade businesses, from small workshops up to
       main dealerships.
-    image: /img/photo-of-man-standing-inside-his-workshop-3817858.jpg
+    image: /img/workshop-min.jpg
   - title: Property Owners
     text: We cover all property owners insurance from commercial to buy-to-let
       properties.
@@ -22,7 +22,7 @@ categorypitch:
   - title: Motor Fleet
     text: We insure some of the largest haulage, plant operators and coach & bus
       firms.
-    image: /img/layerslider1.jpg
+    image: /img/cars.jpg
 introduction:
   heading: Insurance professionals offering a truly personal service.
   text:
