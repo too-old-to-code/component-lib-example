@@ -52,7 +52,7 @@ const ActionButton = styled.button`
 `
 
 const ColumnText = styled.div`
-  column-count: 2;
+  column-width: 400px;
   column-gap: 40px;
   padding: 0 40px;
   color: #708080;
@@ -63,9 +63,7 @@ const ColumnText = styled.div`
       margin-top: 0px !important;
     }
   }
-  // @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
-  @media (max-width: 900px) {
-    column-count: 1;
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
     padding: 0;
     text-align: justify;
   }
@@ -99,7 +97,7 @@ const BulletPointList = styled.div`
 const HeadedColumnText = ({ heading, children }) => {
   return (
     <React.Fragment>
-      <h2 style={{ textAlign: "center", color: "#0A99D8" }}>{heading}</h2>
+      <h3 style={{ textAlign: "center", color: "#0A99D8" }}>{heading}</h3>
       <ColumnText>{children}</ColumnText>
     </React.Fragment>
   )
@@ -110,8 +108,7 @@ export const AboutUsPageTemplate = ({
   heading,
   subheading,
   image,
-  categoryPitches,
-  introduction,
+  aboutUs,
 }) => (
   <div>
     <Parallax
@@ -137,55 +134,51 @@ export const AboutUsPageTemplate = ({
           <Row style={{ height: "100%" }}>
             <Col xs={12} sm={6}>
               <ImageText>
-                <Timeline duration="4">
-                  <Tween
-                    ease="Power2.easeIn"
-                    duration="0.5"
-                    reverse={false}
-                    from={{
-                      xPercent: -150,
-                    }}
-                  >
-                    <div>Our people offer unrivalled service and knowledge</div>
-                  </Tween>
-                </Timeline>
+                <div>Our people offer unrivalled service and knowledge</div>
               </ImageText>
-            </Col>
-            <Col xs={12} sm={6}>
-              <BoxPanel
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  height: "100%",
-                }}
-              >
-                <ActionButton>Get Quote</ActionButton>
-              </BoxPanel>
             </Col>
           </Row>
         </div>
       }
     />
+    {/*<BoxPanel>
+      <Row style={{ height: "100%" }}>
+        <Col xs={12} sm={8} offset={{ sm: 2 }}>
+          <HeadedColumnText heading={aboutUs.heading}>
+            {aboutUs.text.map(({ paragraph }) => (
+              <p>{paragraph}</p>
+            ))}
+          </HeadedColumnText>
+        </Col>
+      </Row>
+    </BoxPanel>*/}
+    <BoxPanel
+      style={{
+        backgroundColor: "#06426a",
+        textAlign: "center",
+        color: "white",
+      }}
+    >
+      <h3>Our Team</h3>
+    </BoxPanel>
   </div>
 )
 
-const IndexPage = ({ data }) => {
+const AboutUsPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <IndexPageTemplate
+    <AboutUsPageTemplate
       title={frontmatter.title}
       heading={frontmatter.heading}
       subheading={frontmatter.subheading}
       image={frontmatter.image}
-      categoryPitches={frontmatter.categorypitch}
-      introduction={frontmatter.introduction}
+      aboutUs={frontmatter.aboutUs}
     />
   )
 }
 
-IndexPage.propTypes = {
+AboutUsPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -193,29 +186,12 @@ IndexPage.propTypes = {
   }),
 }
 
-export default IndexPage
+export default AboutUsPage
 
 export const pageQuery = graphql`
   query AboutUsPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "about-us" } }) {
       frontmatter {
-        introduction {
-          heading
-          text {
-            paragraph
-          }
-        }
-        categorypitch {
-          text
-          title
-          image {
-            childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
         image {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
@@ -229,3 +205,9 @@ export const pageQuery = graphql`
     }
   }
 `
+// aboutUs {
+//   heading
+//   text {
+//     paragraph
+//   }
+// }

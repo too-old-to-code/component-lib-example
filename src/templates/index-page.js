@@ -52,7 +52,7 @@ const ActionButton = styled.button`
 `
 
 const ColumnText = styled.div`
-  column-count: 2;
+  column-width: 400px;
   column-gap: 40px;
   padding: 0 40px;
   color: #708080;
@@ -63,9 +63,7 @@ const ColumnText = styled.div`
       margin-top: 0px !important;
     }
   }
-  // @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
-  @media (max-width: 900px) {
-    column-count: 1;
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
     padding: 0;
     text-align: justify;
   }
@@ -99,7 +97,7 @@ const BulletPointList = styled.div`
 const HeadedColumnText = ({ heading, children }) => {
   return (
     <React.Fragment>
-      <h2 style={{ textAlign: "center", color: "#0A99D8" }}>{heading}</h2>
+      <h3 style={{ textAlign: "center", color: "#0A99D8" }}>{heading}</h3>
       <ColumnText>{children}</ColumnText>
     </React.Fragment>
   )

@@ -47,6 +47,38 @@ collections:
                   { label: Image, name: image, widget: image },
                 ],
             }
+          - {
+              label: About us,
+              name: aboutUs,
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  {
+                    label: Text,
+                    name: text,
+                    widget: list,
+                    fields:
+                      [{ label: Paragraph, name: paragraph, widget: text }],
+                  },
+                ],
+            }
+          - {
+              label: Our team,
+              name: ourTeam,
+              widget: object,
+              fields:
+                [
+                  { label: Heading, name: heading, widget: string },
+                  {
+                    label: Text,
+                    name: text,
+                    widget: list,
+                    fields:
+                      [{ label: Paragraph, name: paragraph, widget: text }],
+                  },
+                ],
+            }
       - file: "src/pages/index.md"
         label: "Landing Page"
         name: "index-page"
