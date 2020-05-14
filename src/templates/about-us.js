@@ -167,62 +167,6 @@ export const AboutUsPageTemplate = ({
         </div>
       }
     />
-
-    <BoxPanel>
-      <Row>
-        <Col md={8} sm={6} xs={12}>
-          <HeadedColumnText heading={introduction.heading}>
-            {introduction.text.map(({ paragraph }) => (
-              <p>{paragraph}</p>
-            ))}
-          </HeadedColumnText>
-        </Col>
-        <Col md={4} sm={6} xs={12}>
-          <BulletPointList
-            style={{ backgroundColor: "#06426A", color: "#FCFAFF" }}
-          >
-            <h3 style={{ marginBottom: 0 }}>Why pick us?</h3>
-            <ul>
-              <li>Service led business</li>
-              <li>Independent and trusted</li>
-              <li>Highly competitive premiums</li>
-              <li>Personal consultants</li>
-              <li>Dedicated claims assistance</li>
-              <li>Finance Available</li>
-            </ul>
-          </BulletPointList>
-        </Col>
-      </Row>
-    </BoxPanel>
-    {categoryPitches &&
-      categoryPitches.map((pitch, index) => {
-        return (
-          <CheckerDuo
-            image={<Img fluid={pitch.image.childImageSharp.fluid} />}
-            height="350px"
-            textPosition={index % 2 === 0 ? "right" : "left"}
-            backgroundColor="rgba(50,70,80, .85)"
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-                maxWidth: "70%",
-                color: "white",
-                fontSize: "1.2em",
-                padding: "30px 0",
-              }}
-            >
-              <PopIn>
-                <h2 style={{ margin: 0 }}>{pitch.title}</h2>
-                <p>{pitch.text}</p>
-              </PopIn>
-            </div>
-          </CheckerDuo>
-        )
-      })}
   </div>
 )
 
@@ -253,7 +197,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query AboutUsPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+    markdownRemark(frontmatter: { templateKey: { eq: "about-us" } }) {
       frontmatter {
         introduction {
           heading
