@@ -1,4 +1,4 @@
-import styled from "styled-components"
+// import styled from "styled-components"
 import { Controller, Scene } from "react-scrollmagic"
 
 // export const ScrollController = styled(Controller).attrs(({ theme }) => ({

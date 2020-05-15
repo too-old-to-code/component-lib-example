@@ -1,24 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
-import logo from "../images/gatsby-icon.png"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
-import { Tween, Timeline, Controls } from "react-gsap"
 import styled from "styled-components"
-import { Container, Row, Col, Visible } from "react-grid-system"
+import { Row, Col } from "react-grid-system"
 import { setConfiguration } from "react-grid-system"
 
 import {
-  MobileMenu,
   Parallax,
-  Diagonal,
-  SixPack,
-  ArrowPanel,
-  Slide,
-  CheckerDuo,
-  PopIn,
   BoxPanel,
-  TwoPack,
   // MainArea
 } from "@custom-lib"
 
@@ -40,16 +30,16 @@ const ImageText = styled.div`
   }
 `
 
-const ActionButton = styled.button`
-  padding: 10px 40px;
-  background-color: #06426a;
-  color: white;
-  border: none;
-  font-size: 2em;
-  @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
-    font-size: 1.5em;
-  }
-`
+// const ActionButton = styled.button`
+//   padding: 10px 40px;
+//   background-color: #06426a;
+//   color: white;
+//   border: none;
+//   font-size: 2em;
+//   @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
+//     font-size: 1.5em;
+//   }
+// `
 
 const ColumnText = styled.div`
   column-width: 400px;
@@ -69,30 +59,30 @@ const ColumnText = styled.div`
   }
 `
 
-const BulletPointList = styled.div`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  ul {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    text-align: left;
-    margin-left: 20px;
-    justify-content: space-around;
-    li {
-      margin: 3px 0;
-    }
-  }
-  @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
-    margin: 30px 0;
-    ul {
-      margin-left: 0;
-    }
-  }
-`
+// const BulletPointList = styled.div`
+//   height: 100%;
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   text-align: center;
+//   ul {
+//     display: flex;
+//     flex-direction: column;
+//     flex: 1;
+//     text-align: left;
+//     margin-left: 20px;
+//     justify-content: space-around;
+//     li {
+//       margin: 3px 0;
+//     }
+//   }
+//   @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
+//     margin: 30px 0;
+//     ul {
+//       margin-left: 0;
+//     }
+//   }
+// `
 
 const HeadedColumnText = ({ heading, children }) => {
   return (
@@ -110,6 +100,7 @@ export const AboutUsPageTemplate = ({
   image,
   aboutUs,
   ourTeam,
+  profiles,
 }) => (
   <div>
     <Parallax
@@ -173,6 +164,21 @@ export const AboutUsPageTemplate = ({
         </Col>
       </Row>
     </BoxPanel>
+    <BoxPanel>
+      <Row style={{ alignItems: "center", justifyContent: "center" }}>
+        {profiles.map(profile => (
+          <div
+            style={{
+              width: "200px",
+              filter: "grayscale(100%)",
+              textAlign: "center",
+            }}
+          >
+            <Img fluid={profile.image.childImageSharp.fluid} />
+          </div>
+        ))}
+      </Row>
+    </BoxPanel>
   </div>
 )
 
@@ -187,6 +193,7 @@ const AboutUsPage = ({ data }) => {
       image={frontmatter.image}
       aboutUs={frontmatter.aboutUs}
       ourTeam={frontmatter.ourTeam}
+      profiles={frontmatter.profiles}
     />
   )
 }
@@ -205,6 +212,17 @@ export const pageQuery = graphql`
   query AboutUsPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "about-us" } }) {
       frontmatter {
+        profiles {
+          name
+          blurb
+          image {
+            childImageSharp {
+              fluid(maxWidth: 300) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
         aboutUs {
           heading
           text {
@@ -219,7 +237,7 @@ export const pageQuery = graphql`
         }
         image {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 1500) {
               ...GatsbyImageSharpFluid
             }
           }

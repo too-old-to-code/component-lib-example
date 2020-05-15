@@ -1,27 +1,27 @@
 import React, { useState, useEffect, useRef } from "react"
 import "../styles/global.scss"
 // import React, { useState } from "react"
-import { Link, useStaticQuery, navigate } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import { Footer } from "../components/footer"
-import { IndexPageTemplate } from "../templates/index-page"
+// import { IndexPageTemplate } from "../templates/index-page"
 // import { gsap } from "gsap"
 // import { TextPlugin } from "gsap/TextPlugin"
 // gsap.registerPlugin(TextPlugin)
 // import Layout from "../components/layout"
 // import Image from "../components/image"
 // import SEO from "../components/seo"
-import logo from "../images/gatsby-icon.png"
+// import logo from "../images/gatsby-icon.png"
 // import { Navbar } from "../../libs"
 import {
   Navbar,
   NavbarLayoutMulti,
   NavbarItem,
   MobileMenu,
-  MainArea,
-  Parallax,
-  Slide,
+  // MainArea,
+  // Parallax,
+  // Slide,
 } from "@custom-lib"
 import {
   ScrollController,
@@ -50,6 +50,7 @@ const MobileMenuWithContent = ({ isOpen }) => {
   return (
     <MobileMenu isOpen={isOpen}>
       <Link
+        to="/"
         style={{
           textDecoration: "none",
           color: "inherit",

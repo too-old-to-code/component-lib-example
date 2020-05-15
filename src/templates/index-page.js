@@ -1,24 +1,17 @@
 import React from "react"
 import PropTypes from "prop-types"
-import logo from "../images/gatsby-icon.png"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
-import { Tween, Timeline, Controls } from "react-gsap"
+import { Tween, Timeline } from "react-gsap"
 import styled from "styled-components"
-import { Container, Row, Col, Visible } from "react-grid-system"
+import { Row, Col } from "react-grid-system"
 import { setConfiguration } from "react-grid-system"
 
 import {
-  MobileMenu,
   Parallax,
-  Diagonal,
-  SixPack,
-  ArrowPanel,
-  Slide,
   CheckerDuo,
   PopIn,
   BoxPanel,
-  TwoPack,
   // MainArea
 } from "@custom-lib"
 
@@ -198,7 +191,7 @@ export const IndexPageTemplate = ({
         <Col md={8} sm={6} xs={12}>
           <HeadedColumnText heading={introduction.heading}>
             {introduction.text.map(({ paragraph }) => (
-              <p>{paragraph}</p>
+              <p key={paragraph}>{paragraph}</p>
             ))}
           </HeadedColumnText>
         </Col>
@@ -223,7 +216,14 @@ export const IndexPageTemplate = ({
       categoryPitches.map((pitch, index) => {
         return (
           <CheckerDuo
-            image={<Img fluid={pitch.image.childImageSharp.fluid} />}
+            key={pitch.title}
+            image={
+              <Img
+                fluid={pitch.image.childImageSharp.fluid}
+                loading="lazy"
+                alt="mything"
+              />
+            }
             height="350px"
             textPosition={index % 2 === 0 ? "right" : "left"}
             backgroundColor="rgba(50,70,80, .85)"
@@ -291,7 +291,7 @@ export const pageQuery = graphql`
           title
           image {
             childImageSharp {
-              fluid(maxWidth: 2048, quality: 100) {
+              fluid(maxWidth: 1500) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -299,7 +299,7 @@ export const pageQuery = graphql`
         }
         image {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 1500) {
               ...GatsbyImageSharpFluid
             }
           }

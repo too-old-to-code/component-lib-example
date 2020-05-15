@@ -6,6 +6,7 @@ import {
   ScrollScene,
 } from "../scroll-magic/custom-scrollmagic"
 import { Tween, Timeline } from "react-gsap"
+import { Visible, Hidden } from "react-grid-system"
 
 const ParallaxStyled = styled.div`
   position: relative;
@@ -53,22 +54,34 @@ const ParallaxStyled = styled.div`
 //   display: none;
 // }`
 export const Parallax = props => (
-  <ParallaxStyled hideOnMobile={props.hideOnMobile}>
-    <ScrollController>
-      <ScrollScene duration="200%" triggerHook={props.triggerHook}>
-        <Timeline
-          wrapper={
-            <div className="parallax" style={{ height: props.height }} />
-          }
-        >
-          <Tween from={{ yPercent: 0 }} to={{ yPercent: 30 }}>
-            <div className="image-wrapper">{props.image}</div>
-          </Tween>
-        </Timeline>
-      </ScrollScene>
-    </ScrollController>
-    {props.staticContent}
-  </ParallaxStyled>
+  <React.Fragment>
+    <Hidden xs>
+      <ParallaxStyled hideOnMobile={props.hideOnMobile}>
+        <ScrollController>
+          <ScrollScene duration="200%" triggerHook={props.triggerHook}>
+            <Timeline
+              wrapper={
+                <div className="parallax" style={{ height: props.height }} />
+              }
+            >
+              <Tween from={{ yPercent: 0 }} to={{ yPercent: 30 }}>
+                <div className="image-wrapper">{props.image}</div>
+              </Tween>
+            </Timeline>
+          </ScrollScene>
+        </ScrollController>
+        {props.staticContent}
+      </ParallaxStyled>
+    </Hidden>
+    <Visible xs>
+      <ParallaxStyled>
+        <div className="parallax">
+          <div className="image-wrapper">{props.image}</div>
+        </div>
+        {props.staticContent}
+      </ParallaxStyled>
+    </Visible>
+  </React.Fragment>
 )
 
 Parallax.propTypes = {

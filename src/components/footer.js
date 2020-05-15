@@ -27,7 +27,12 @@ export const Footer = props => {
       >
         {props.siteData.socialmedia.map(sm => {
           return (
-            <SocialIcon fgColor="white" url={sm} style={{ margin: "10px" }} />
+            <SocialIcon
+              key={sm}
+              fgColor="white"
+              url={sm}
+              style={{ margin: "10px" }}
+            />
           )
         })}
       </div>
