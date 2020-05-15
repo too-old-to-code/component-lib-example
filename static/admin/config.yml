@@ -105,12 +105,16 @@ collections:
               name: "section",
               widget: "list",
               types:
-                - label: "Image"
-                  name: "image"
-                  widget: image
-                - label: "Text"
-                  name: "text"
-                  widget: text
+                - {
+                    label: "Image",
+                    name: "image",
+                    widget: image,
+                  }
+                - {
+                    label: "Text",
+                    name: "text",
+                    widget: text
+                  }
             }
       - file: "src/pages/index.md"
         label: "Landing Page"
