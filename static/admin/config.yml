@@ -90,6 +90,28 @@ collections:
                   { label: Blurb, name: blurb, widget: text },
                 ],
             }
+      - file: "src/pages/services.md"
+        label: "Services Page"
+        name: "services"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "services",
+            }
+          - {
+              label: "Section",
+              name: "section",
+              widget: "list",
+              types:
+                - label: 'Image'
+                  name: 'image'
+                  widget: image
+                - label: "Text"
+                  name: "text"
+                  widget: text
+            }
       - file: "src/pages/index.md"
         label: "Landing Page"
         name: "index-page"
