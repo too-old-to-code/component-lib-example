@@ -103,18 +103,22 @@ collections:
           - {
               label: "Section",
               name: "section",
-              widget: "list",
+              widget: list,
               types:
-                - {
+                [
+                  {
                     label: "Image",
                     name: "image",
-                    widget: image,
-                  }
-                - {
+                    widget: object,
+                    fields: [{ label: Path, name: path, widget: image }],
+                  },
+                  {
                     label: "Text",
                     name: "text",
-                    widget: text
-                  }
+                    widget: object,
+                    fields: [{ label: Words, name: words, widget: text }],
+                  },
+                ],
             }
       - file: "src/pages/index.md"
         label: "Landing Page"
