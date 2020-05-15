@@ -105,8 +105,8 @@ collections:
               name: "section",
               widget: "list",
               types:
-                - label: 'Image'
-                  name: 'image'
+                - label: "Image"
+                  name: "image"
                   widget: image
                 - label: "Text"
                   name: "text"

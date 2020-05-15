@@ -10,17 +10,17 @@ const ServicesPage = () => {
 
 export default ServicesPage
 
-export const pageQuery = graphql`
-  query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "services-page" } }) {
-      frontmatter {
-        introduction {
-          heading
-          text {
-            paragraph
-          }
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query IndexPageTemplate {
+//     markdownRemark(frontmatter: { templateKey: { eq: "services-page" } }) {
+//       frontmatter {
+//         introduction {
+//           heading
+//           text {
+//             paragraph
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
