@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 import { StyleSheetManager, ThemeProvider } from "styled-components"
 import IndexPagePreview from "./preview-templates/IndexPagePreview"
 
-import theme from "../theme"
+import { theme } from "../theme"
 
 const StylesheetInjector = ({ children }) => {
   const [iframeRef, setIframeRef] = useState(undefined)
