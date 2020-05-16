@@ -76,7 +76,7 @@ export const Parallax = props => (
     <Visible xs>
       <ParallaxStyled>
         <div className="parallax" style={{ height: props.mobileHeight }}>
-          <div className="image-wrapper">{props.image}</div>
+          <div className="image-wrapper">{props.mobileImage}</div>
         </div>
         {props.staticContent}
       </ParallaxStyled>

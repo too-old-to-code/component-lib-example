@@ -101,6 +101,7 @@ export const IndexPageTemplate = ({
   heading,
   subheading,
   image,
+  mobileImage,
   categoryPitches,
   introduction,
 }) => (
@@ -109,6 +110,12 @@ export const IndexPageTemplate = ({
       image={
         <Img
           fluid={image.childImageSharp.fluid}
+          imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
+        />
+      }
+      mobileImage={
+        <Img
+          fluid={mobileImage.childImageSharp.fluid}
           imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
         />
       }
@@ -261,6 +268,7 @@ const IndexPage = ({ data }) => {
       heading={frontmatter.heading}
       subheading={frontmatter.subheading}
       image={frontmatter.image}
+      mobileImage={frontmatter.mobileImage}
       categoryPitches={frontmatter.categorypitch}
       introduction={frontmatter.introduction}
     />
@@ -301,6 +309,13 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             fluid(maxWidth: 1500, quality: 80) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        mobileImage {
+          childImageSharp {
+            fluid(maxWidth: 500, quality: 80) {
               ...GatsbyImageSharpFluid
             }
           }
