@@ -26,5 +26,7 @@ const StylesheetInjector = ({ children }) => {
 }
 
 CMS.registerPreviewTemplate("index", props => (
-  <StyleSheetInjector>IndexPagePreview</StylesheetInjector>
+  <StyleSheetInjector>
+    <IndexPagePreview {...props} />
+  </StylesheetInjector>
 ))
