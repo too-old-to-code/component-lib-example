@@ -112,7 +112,8 @@ export const IndexPageTemplate = ({
           imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
         />
       }
-      height="90vh"
+      height="70vh"
+      mobileHeight="90vh"
       staticContent={
         <div
           style={{

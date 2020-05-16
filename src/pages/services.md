@@ -1,4 +1,5 @@
 ---
+templateKey: services
 section:
   - type: image
     path: /img/evans-thumb.jpg

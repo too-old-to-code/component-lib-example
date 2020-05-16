@@ -11,6 +11,8 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-layout`,
     `gatsby-transformer-yaml`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       // This adds the images added through the cms
@@ -89,8 +91,7 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -75,7 +75,7 @@ export const Parallax = props => (
     </Hidden>
     <Visible xs>
       <ParallaxStyled>
-        <div className="parallax">
+        <div className="parallax" style={{ height: props.mobileHeight }}>
           <div className="image-wrapper">{props.image}</div>
         </div>
         {props.staticContent}
@@ -86,6 +86,7 @@ export const Parallax = props => (
 
 Parallax.propTypes = {
   height: PropTypes.string,
+  mobileHeight: PropTypes.string,
   staticContent: PropTypes.any,
   image: PropTypes.any,
   hideOnMobile: PropTypes.bool,
