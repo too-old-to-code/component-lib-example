@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: This is a new title
-image: /img/layerslider4.jpg
+image: /img/layerslider4mobile.jpg
 heading: A heading goes here
 subheading: And this will be the subheading
 mainpitch:
