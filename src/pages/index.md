@@ -1,12 +1,10 @@
 ---
 templateKey: index-page
 title: This is a new title
-image: /img/layerslider4mobile.jpg
+image: /img/layerslider4.jpg
+mobileImage: /img/layerslider4mobile.jpg
 heading: A heading goes here
 subheading: And this will be the subheading
-mainpitch:
-  title: Stuff
-  description: This is stuff
 categorypitch:
   - title: Construction
     text: Protecting against the cost of loss, damage, contract materials and more.
@@ -23,6 +21,9 @@ categorypitch:
     text: We insure some of the largest haulage, plant operators and coach & bus
       firms.
     image: /img/cars.jpg
+mainpitch:
+  title: Stuff
+  description: This is stuff
 introduction:
   heading: Insurance professionals offering a truly personal service.
   text:
