@@ -108,16 +108,24 @@ export const IndexPageTemplate = ({
   <div>
     <Parallax
       image={
-        <Img
-          fluid={image.childImageSharp.fluid}
-          imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
-        />
+        !!image.childImageSharp ? (
+          <Img
+            fluid={image.childImageSharp.fluid}
+            imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
+          />
+        ) : (
+          <img src={image} />
+        )
       }
       mobileImage={
-        <Img
-          fluid={mobileImage.childImageSharp.fluid}
-          imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
-        />
+        !!image.childImageSharp ? (
+          <Img
+            fluid={mobileImage.childImageSharp.fluid}
+            imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
+          />
+        ) : (
+          <img src={mobileImage} />
+        )
       }
       height="70vh"
       mobileHeight="90vh"
@@ -226,11 +234,15 @@ export const IndexPageTemplate = ({
           <CheckerDuo
             key={pitch.title}
             image={
-              <Img
-                fluid={pitch.image.childImageSharp.fluid}
-                loading="lazy"
-                alt="mything"
-              />
+              !!image.childImageSharp ? (
+                <Img
+                  fluid={pitch.image.childImageSharp.fluid}
+                  loading="lazy"
+                  alt="mything"
+                />
+              ) : (
+                <img src={image} />
+              )
             }
             height="350px"
             textPosition={index % 2 === 0 ? "right" : "left"}
