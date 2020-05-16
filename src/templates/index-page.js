@@ -241,7 +241,7 @@ export const IndexPageTemplate = ({
                   alt="mything"
                 />
               ) : (
-                <img src={image} />
+                <img src={pitch.image} />
               )
             }
             height="350px"
