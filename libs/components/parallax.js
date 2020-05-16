@@ -8,78 +8,54 @@ import {
 import { Tween, Timeline } from "react-gsap"
 import { Visible, Hidden } from "react-grid-system"
 
-const ParallaxStyled = styled.div`
+const ParallaxContainer = styled.div`
+  overflow: hidden;
+  position: relative;
+`
+
+const ParallaxPanel = styled.div.attrs(({ height = "90vh" }) => ({
+  style: { height },
+}))`
   position: relative;
   overflow: hidden;
-  .parallax {
-    height: 90vh;
-    position: relative;
-    overflow: hidden;
-
-
-    .image-wrapper{
-      position: absolute;
-      left: 0;
-      right: 0;
-      text-align: center;
-      color: white;
-      height: 100%;
-
-      > div {
-        height: 100%;
-      }
-    }
-    img {
-      width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      object-position: 50% 50%;
-    }
-    h2 {
-      position: absolute;
-      left: 200px;
-      text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
-        0px -5px 35px rgba(255, 255, 255, 0.3);
-    }
-  }
-}
-@media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
-  ${props => console.log(props) || (props.hideOnMobile && "display: none;")}
-}
 `
-// ${(props) =>
-//   props.hideOnMobile &&
-//   `
-// @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
-//   display: none;
-// }`
+
+const ImageWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  height: 100%;
+
+  > div {
+    height: 100%;
+  }
+`
+
 export const Parallax = props => (
   <React.Fragment>
     <Hidden xs>
-      <ParallaxStyled hideOnMobile={props.hideOnMobile}>
+      <ParallaxContainer>
         <ScrollController>
           <ScrollScene duration="200%" triggerHook={props.triggerHook}>
-            <Timeline
-              wrapper={
-                <div className="parallax" style={{ height: props.height }} />
-              }
-            >
+            <Timeline wrapper={<ParallaxPanel height={props.height} />}>
               <Tween from={{ yPercent: 0 }} to={{ yPercent: 30 }}>
-                <div className="image-wrapper">{props.image}</div>
+                <ImageWrapper>{props.image}</ImageWrapper>
               </Tween>
             </Timeline>
           </ScrollScene>
         </ScrollController>
         {props.staticContent}
-      </ParallaxStyled>
+      </ParallaxContainer>
     </Hidden>
     <Visible xs>
-      <ParallaxStyled>
-        <div className="parallax" style={{ height: props.mobileHeight }}>
-          <div className="image-wrapper">{props.mobileImage}</div>
-        </div>
+      <ParallaxContainer>
+        <ParallaxPanel height={props.mobileHeight}>
+          <ImageWrapper>{props.mobileImage}</ImageWrapper>
+        </ParallaxPanel>
         {props.staticContent}
-      </ParallaxStyled>
+      </ParallaxContainer>
     </Visible>
   </React.Fragment>
 )

@@ -87,7 +87,9 @@ const ColumnText = styled.div`
 const HeadedColumnText = ({ heading, children }) => {
   return (
     <React.Fragment>
-      <h3 style={{ textAlign: "center", color: "#0A99D8" }}>{heading}</h3>
+      <h3 style={{ textAlign: "center", color: "#0A99D8", padding: "0 40px" }}>
+        {heading}
+      </h3>
       <ColumnText>{children}</ColumnText>
     </React.Fragment>
   )

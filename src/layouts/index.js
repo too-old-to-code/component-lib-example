@@ -1,33 +1,15 @@
-import React, { useState, useEffect, useRef } from "react"
 import "../styles/global.scss"
-// import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { Link, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import { Footer } from "../components/footer"
-// import { IndexPageTemplate } from "../templates/index-page"
-// import { gsap } from "gsap"
-// import { TextPlugin } from "gsap/TextPlugin"
-// gsap.registerPlugin(TextPlugin)
-// import Layout from "../components/layout"
-// import Image from "../components/image"
-// import SEO from "../components/seo"
-// import logo from "../images/gatsby-icon.png"
-// import { Navbar } from "../../libs"
-import {
-  Navbar,
-  NavbarLayoutMulti,
-  NavbarItem,
-  MobileMenu,
-  // MainArea,
-  // Parallax,
-  // Slide,
-} from "@custom-lib"
+
+import { Navbar, NavbarLayoutMulti, NavbarItem, MobileMenu } from "@custom-lib"
 import {
   ScrollController,
   ScrollScene,
 } from "@custom-lib/scroll-magic/custom-scrollmagic"
-// import { Controller, Scene } from "react-scrollmagic";
 
 import { ThemeProvider } from "styled-components"
 import { theme } from "../theme.js"
@@ -38,13 +20,36 @@ import {
   clearAllBodyScrollLocks,
 } from "body-scroll-lock"
 
-const NavItemInner = props => {
-  return <div style={{ textAlign: "center" }}>{props.children}</div>
-}
+import styled from "styled-components"
 
-NavItemInner.propTypes = {
-  children: PropTypes.any,
-}
+const NavItemInner = styled.div`
+  text-align: center;
+  padding: 2px 4px;
+  .active-link & {
+    border-bottom: 3px solid #0a98d8;
+  }
+`
+
+const Hide = styled.span`
+  display: none;
+  .second-color & {
+    display: block !important;
+  }
+`
+const Show = styled.span`
+  display: block;
+  .second-color & {
+    display: none;
+  }
+`
+
+// const NavItemInner = props => {
+//   return <div style={{ textAlign: "center" }}>{props.children}</div>
+// }
+
+// NavItemInner.propTypes = {
+//   children: PropTypes.any,
+// }
 
 const MobileMenuWithContent = ({ isOpen }) => {
   return (
@@ -149,6 +154,20 @@ const Layout = ({ children }) => {
           }
         }
       }
+      altLogo: file(relativePath: { eq: "alt-bpw-logo.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      investors: file(relativePath: { eq: "investors-in-people-logo.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       sitedata: allDataYaml(filter: {}) {
         nodes {
           id
@@ -158,7 +177,6 @@ const Layout = ({ children }) => {
     }
   `)
 
-  console.log(data)
   return (
     <ThemeProvider theme={theme}>
       <ScrollController>
@@ -173,6 +191,9 @@ const Layout = ({ children }) => {
               style={{
                 boxShadow: "0px 5px 10px 0px rgba(0,0,0,0.125)",
                 letterSpacing: "1px",
+                paddingRight: "30px",
+                fontSize: "1em",
+                fontWeight: "bold",
               }}
               burgerMenuStyle="spin"
               burgerMenuIsActive={burgerMenuIsActive}
@@ -183,10 +204,18 @@ const Layout = ({ children }) => {
                 logoPosition="left"
                 logo={
                   <NavbarItem logo>
-                    <Img
-                      fluid={data.placeholderImage.childImageSharp.fluid}
-                      style={{ width: "70px" }}
-                    />
+                    <Hide>
+                      <Img
+                        fluid={data.placeholderImage.childImageSharp.fluid}
+                        style={{ width: "70px" }}
+                      />
+                    </Hide>
+                    <Show>
+                      <Img
+                        fluid={data.altLogo.childImageSharp.fluid}
+                        style={{ width: "70px" }}
+                      />
+                    </Show>
                   </NavbarItem>
                 }
                 mobileMenu={
@@ -195,6 +224,7 @@ const Layout = ({ children }) => {
               >
                 <Link
                   to="/"
+                  activeClassName="active-link"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <NavbarItem key="1">
@@ -203,6 +233,7 @@ const Layout = ({ children }) => {
                 </Link>
                 <Link
                   to="/about-us"
+                  activeClassName="active-link"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <NavbarItem key="2">
@@ -211,6 +242,7 @@ const Layout = ({ children }) => {
                 </Link>
                 <Link
                   to="/our-clients"
+                  activeClassName="active-link"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <NavbarItem
@@ -222,6 +254,7 @@ const Layout = ({ children }) => {
                 </Link>
                 <Link
                   to="/services"
+                  activeClassName="active-link"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <NavbarItem
@@ -233,6 +266,7 @@ const Layout = ({ children }) => {
                 </Link>
                 <Link
                   to="/contact-us"
+                  activeClassName="active-link"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <NavbarItem key="4">
@@ -245,9 +279,10 @@ const Layout = ({ children }) => {
         </ScrollScene>
       </ScrollController>
       <div id="top-flag"></div>
+
       {children}
       <div>
-        <Footer siteData={data.sitedata.nodes[0]} />
+        <Footer siteData={data.sitedata.nodes[0]} image={data.investors} />
       </div>
     </ThemeProvider>
   )

@@ -45,8 +45,8 @@ const ActionButton = styled.button`
 `
 
 const ColumnText = styled.div`
-  column-width: 400px;
-  column-gap: 40px;
+  // column-width: 400px;
+  // column-gap: 40px;
   padding: 0 40px;
   color: #708080;
   p {
@@ -63,7 +63,6 @@ const ColumnText = styled.div`
 `
 
 const BulletPointList = styled.div`
-  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -76,7 +75,7 @@ const BulletPointList = styled.div`
     margin-left: 20px;
     justify-content: space-around;
     li {
-      margin: 3px 0;
+      margin: 10px 0;
     }
   }
   @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
@@ -90,7 +89,9 @@ const BulletPointList = styled.div`
 const HeadedColumnText = ({ heading, children }) => {
   return (
     <React.Fragment>
-      <h3 style={{ textAlign: "center", color: "#0A99D8" }}>{heading}</h3>
+      <h3 style={{ textAlign: "center", color: "#0A99D8", padding: "0 40px" }}>
+        {heading}
+      </h3>
       <ColumnText>{children}</ColumnText>
     </React.Fragment>
   )
@@ -211,7 +212,12 @@ export const IndexPageTemplate = ({
             ))}
           </HeadedColumnText>
         </Col>
-        <Col md={4} sm={6} xs={12}>
+        <Col
+          md={4}
+          sm={6}
+          xs={12}
+          style={{ display: "flex", alignItems: "center" }}
+        >
           <BulletPointList
             style={{ backgroundColor: "#06426A", color: "#FCFAFF" }}
           >
@@ -261,7 +267,9 @@ export const IndexPageTemplate = ({
               }}
             >
               <PopIn>
-                <h2 style={{ margin: 0 }}>{pitch.title}</h2>
+                <h2 style={{ margin: 0, textAlign: "center" }}>
+                  {pitch.title}
+                </h2>
                 <p>{pitch.text}</p>
               </PopIn>
             </div>

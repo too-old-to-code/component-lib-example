@@ -1,6 +1,6 @@
 // import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import PropTypes from "prop-types"
+import styled from "styled-components"
 
 export const NavbarItem = styled.div.attrs(({ logo }) => ({
   className: logo ? "app-logo" : "",
@@ -23,12 +23,12 @@ export const NavbarItem = styled.div.attrs(({ logo }) => ({
     left: 0;
     right: 0;
     bottom: 0;
-    ${(props) => (props.hoverBorder ? `border-${props.hoverBorder}` : "")};
+    ${props => (props.hoverBorder ? `border-${props.hoverBorder}` : "")};
   }
   @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
     display: none;
   }
-`;
+`
 
 // export const NavbarItemOne = (props) => {
 //   return (
@@ -43,4 +43,4 @@ NavbarItem.propTypes = {
   style: PropTypes.any,
   logo: PropTypes.bool,
   hoverBorder: PropTypes.string,
-};
+}

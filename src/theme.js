@@ -92,7 +92,7 @@ export const theme = {
   },
   navbarAlt: {
     textColor: "#303030",
-    hoverTextColor: "#EC1E69",
+    hoverTextColor: "#93dfff",
     background: "#FCFAFF",
     hoverBackground: null,
     backgroundSelected: "#2dbeff",
@@ -101,7 +101,7 @@ export const theme = {
   navbar: {
     position: "fixed",
     textColor: "#FCFAFF",
-    hoverTextColor: "#EC1E69",
+    hoverTextColor: "#93dfff",
     // background: "linear-gradient(rgba(0,0,0,.7),transparent)",
     background: "rgba(0,0,0,.2)",
     hoverBackground: null,
