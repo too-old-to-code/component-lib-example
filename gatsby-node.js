@@ -10,20 +10,20 @@ const { fmImagesToRelative } = require("gatsby-remark-relative-images")
  */
 
 // You can delete this file if you're not using it
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === "build-html") {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /my-component-lib/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    })
-  }
-}
+// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+//   if (stage === "build-html") {
+//     actions.setWebpackConfig({
+//       module: {
+//         rules: [
+//           {
+//             test: /my-component-lib/,
+//             use: loaders.null(),
+//           },
+//         ],
+//       },
+//     })
+//   }
+// }
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -53,7 +53,7 @@ exports.createPages = ({ actions, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges
     posts.forEach(edge => {
       console.log(edge.node.frontmatter.templateKey == null)
-      if (edge.node.frontmatter.templateKey === "sitewide") return
+      // if (edge.node.frontmatter.templateKey === "sitewide") return
       const id = edge.node.id
       createPage({
         path: edge.node.fields.slug,
