@@ -18,7 +18,10 @@ const StylesheetInjector = ({ children }) => {
     <>
       {iframeRef && (
         <ThemeProvider theme={theme}>
-          <StyleSheetManager target={iframeRef}>{children}</StyleSheetManager>
+          <StyleSheetManager target={iframeRef}>
+            <h1>Preview working</h1>
+            {children}
+          </StyleSheetManager>
         </ThemeProvider>
       )}
     </>
