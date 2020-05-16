@@ -131,7 +131,8 @@ collections:
               default: "index-page",
             }
           - { label: Title, name: title, widget: string }
-          - { label: Image, name: image, widget: image }
+          - { label: Image (), name: image, widget: image }
+          - { label: Mobile Image (), name: mobileImage, widget: image }
           - { label: Heading, name: heading, widget: string }
           - { label: Subheading, name: subheading, widget: string }
           - {
