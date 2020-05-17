@@ -1,10 +1,4 @@
 ---
-templateKey: index-page
-title: This is a new title
-image: /img/layerslider4.jpg
-mobileImage: /img/layerslider4mobile.jpg
-heading: A heading goes here
-subheading: And this will be the subheading
 categorypitch:
   - title: Construction
     text: Protecting against the cost of loss, damage, contract materials and more.
@@ -21,9 +15,22 @@ categorypitch:
     text: We insure some of the largest haulage, plant operators and coach & bus
       firms.
     image: /img/cars.jpg
+heading: A heading goes here
+subheading: And this will be the subheading
+templateKey: index-page
+image: /img/layerslider4.jpg
+whyPickUsList:
+  - reason: Service led business
+  - reason: Independent and trusted
+  - reason: Highly competitive premiums
+  - reason: Personal consultants
+  - reason: Dedicated claims assistance
+  - reason: Finance available
 mainpitch:
   title: Stuff
   description: This is stuff
+title: This is a new title
+mobileImage: /img/layerslider4mobile.jpg
 introduction:
   heading: Insurance professionals offering a truly personal service.
   text:
