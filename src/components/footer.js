@@ -9,6 +9,12 @@ const StyledFooter = styled.footer`
   background-color: #06426a;
 `
 
+const PlainLink = styled.a`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+`
+
 export const Footer = ({ image, siteData }) => {
   return (
     <StyledFooter>
@@ -25,12 +31,18 @@ export const Footer = ({ image, siteData }) => {
           >
             <div>
               <div style={{ fontWeight: "bold" }}>Contact us:</div>
-              {siteData.addressLine.map(line => {
-                return <div>{line}</div>
-              })}
-              <br />
-              <div>{siteData.phoneNumber}</div>
-              <div>{siteData.email}</div>
+              <address>
+                {siteData.addressLine.map(line => {
+                  return <div>{line}</div>
+                })}
+                <br />
+                <PlainLink href={`tel:${siteData.phoneNumber}`}>
+                  {siteData.phoneNumber}
+                </PlainLink>
+                <PlainLink href={`mailto:${siteData.email}`}>
+                  {siteData.email}
+                </PlainLink>
+              </address>
             </div>
           </div>
         </Col>

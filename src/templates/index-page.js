@@ -6,6 +6,7 @@ import { Tween, Timeline } from "react-gsap"
 import styled from "styled-components"
 import { Row, Col } from "react-grid-system"
 import { setConfiguration } from "react-grid-system"
+import { Link } from "gatsby"
 
 import {
   Parallax,
@@ -34,12 +35,13 @@ const ImageText = styled.div`
   }
 `
 
-const ActionButton = styled.button`
+const ActionButton = styled(Link)`
   padding: 10px 40px;
   background-color: #06426a;
   color: white;
   border: none;
   font-size: 2em;
+  text-decoration: none;
   @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
     font-size: 1.5em;
   }
@@ -183,7 +185,7 @@ export const IndexPageTemplate = ({
                   height: "100%",
                 }}
               >
-                <ActionButton>Get Quote</ActionButton>
+                <ActionButton to="/contact-us">Get Quote</ActionButton>
               </BoxPanel>
             </Col>
           </Row>
