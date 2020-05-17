@@ -25,8 +25,9 @@ const ImageText = styled.div`
   margin-left: 50px;
   font-family: "Teko";
   font-size: 4em;
+  font-weight: bold;
   color: rgb(160, 216, 123);
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 0px 1px 1px black;
   @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
     margin-left: 20px;
     font-size: 2.5em;
@@ -105,6 +106,7 @@ export const IndexPageTemplate = ({
   mobileImage,
   categoryPitches,
   introduction,
+  whyPickUsList,
 }) => (
   <div>
     <Parallax
@@ -209,12 +211,9 @@ export const IndexPageTemplate = ({
           >
             <h3 style={{ marginBottom: 0 }}>Why pick us?</h3>
             <ul>
-              <li>Service led business</li>
-              <li>Independent and trusted</li>
-              <li>Highly competitive premiums</li>
-              <li>Personal consultants</li>
-              <li>Dedicated claims assistance</li>
-              <li>Finance Available</li>
+              {whyPickUsList.map(item => {
+                return <li key={item.reason}>{item.reason}</li>
+              })}
             </ul>
           </BulletPointList>
         </Col>
@@ -277,6 +276,7 @@ const IndexPage = ({ data }) => {
       mobileImage={frontmatter.mobileImage}
       categoryPitches={frontmatter.categorypitch}
       introduction={frontmatter.introduction}
+      whyPickUsList={frontmatter.whyPickUsList}
     />
   )
 }
@@ -311,6 +311,9 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+        whyPickUsList {
+          reason
         }
         image {
           childImageSharp {
