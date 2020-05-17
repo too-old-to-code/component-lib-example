@@ -1,26 +1,26 @@
 ---
 categorypitch:
   - title: Construction
-    text: Protecting against the cost of loss, damage, contract materials and more.
+    text: Protecting against the cost of loss, damage, contract materials and more
     image: /img/construction-small.jpg
   - title: Motor Trade
     text: Cover for all types of Motor Trade businesses, from small workshops up to
-      main dealerships.
+      main dealerships
     image: /img/workshop-min.jpg
   - title: Property Owners
     text: We cover all property owners insurance from commercial to buy-to-let
-      properties.
+      properties
     image: /img/houses-min.jpg
   - title: Motor Fleet
     text: We insure some of the largest haulage, plant operators and coach & bus
-      firms.
+      firms
     image: /img/cars.jpg
 heading: A heading goes here
 subheading: And this will be the subheading
 templateKey: index-page
 image: /img/layerslider4.jpg
 whyPickUsList:
-  - reason: Service led business
+  - reason: Service-led business
   - reason: Independent and trusted
   - reason: Highly competitive premiums
   - reason: Personal consultants
