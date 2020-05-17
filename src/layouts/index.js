@@ -172,6 +172,9 @@ const Layout = ({ children }) => {
         nodes {
           id
           socialmedia
+          addressLine
+          email
+          phoneNumber
         }
       }
     }

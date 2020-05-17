@@ -9,7 +9,7 @@ const StyledFooter = styled.footer`
   background-color: #06426a;
 `
 
-export const Footer = props => {
+export const Footer = ({ image, siteData }) => {
   return (
     <StyledFooter>
       <Row>
@@ -25,13 +25,12 @@ export const Footer = props => {
           >
             <div>
               <div style={{ fontWeight: "bold" }}>Contact us:</div>
-              <div>Cathedral Chambers</div>
-              <div>107 Stow Hill</div>
-              <div>Newport</div>
-              <div>NP20 4ED</div>
+              {siteData.addressLine.map(line => {
+                return <div>{line}</div>
+              })}
               <br />
-              <div>01633 213 116</div>
-              <div>info@bpw-insurance.co.uk</div>
+              <div>{siteData.phoneNumber}</div>
+              <div>{siteData.email}</div>
             </div>
           </div>
         </Col>
@@ -44,11 +43,10 @@ export const Footer = props => {
                 justifyContent: "center",
                 color: "white",
                 flexDirection: "column",
-                // height: "100%",
               }}
             >
               <div style={{ width: "150px" }}>
-                <Img fluid={props.image.childImageSharp.fluid} />
+                <Img fluid={image.childImageSharp.fluid} />
               </div>
             </div>
           </Col>
@@ -62,7 +60,7 @@ export const Footer = props => {
           justifyContent: "center",
         }}
       >
-        {props.siteData.socialmedia.map(sm => {
+        {siteData.socialmedia.map(sm => {
           return (
             <SocialIcon
               key={sm}

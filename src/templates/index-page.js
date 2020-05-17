@@ -128,7 +128,7 @@ export const IndexPageTemplate = ({
           <img src={mobileImage} />
         )
       }
-      height="70vh"
+      height="90vh"
       mobileHeight="90vh"
       staticContent={
         <div
@@ -146,37 +146,23 @@ export const IndexPageTemplate = ({
             <Col xs={12} sm={6}>
               <ImageText>
                 <Timeline duration="4">
+                  {["Independent", "Trusted", "Professional"].map(word => {
+                    return (
+                      <Tween
+                        key={word}
+                        ease="Power2.easeIn"
+                        duration="0.5"
+                        from={{
+                          xPercent: -150,
+                        }}
+                      >
+                        <div>{word}</div>
+                      </Tween>
+                    )
+                  })}
                   <Tween
                     ease="Power2.easeIn"
                     duration="0.5"
-                    reverse={false}
-                    from={{
-                      xPercent: -150,
-                    }}
-                  >
-                    <div>Independent</div>
-                  </Tween>
-                  <Tween
-                    ease="Power2.easeIn"
-                    duration="0.5"
-                    from={{
-                      xPercent: -150,
-                    }}
-                  >
-                    <div>Trusted</div>
-                  </Tween>
-                  <Tween
-                    ease="Power2.easeIn"
-                    duration="0.5"
-                    from={{
-                      xPercent: -150,
-                    }}
-                  >
-                    <div>Professional</div>
-                  </Tween>
-                  <Tween
-                    ease="Power2.easeIn"
-                    duration="1"
                     from={{
                       opacity: 0,
                     }}
