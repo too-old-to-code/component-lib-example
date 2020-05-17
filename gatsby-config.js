@@ -79,7 +79,7 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-plugin-manifest`, // This needs to be above cms or you will break the preview
       options: {
         name: `gatsby-starter-default`,
         short_name: `starter`,
