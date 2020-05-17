@@ -15,6 +15,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         heading={data.heading}
         subheading={data.subheading}
         introduction={data.introduction}
+        whyPickUsList={data.whyPickUsList}
       />
     )
   } else {
