@@ -6,9 +6,10 @@ import PropTypes from "prop-types"
 const Menu = styled.button.attrs(({ isActive, burgerStyle }) => ({
   className: `hamburger hamburger--${burgerStyle || "spin"} ${
     isActive ? "is-active" : ""
-  } sidebar-menu`,
+  }`,
   type: "button",
 }))`
+  align-items: center;
   z-index: 200 !important;
   // position: ${props => (props.fixed ? "fixed" : "absolute")};
   position: ${({ theme }) =>

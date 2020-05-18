@@ -15,25 +15,28 @@ const PlainLink = styled.a`
   display: block;
 `
 
+const FooterBlock = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-direction: column;
+  @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
+    align-items: flex-start;
+  }
+`
+
 export const Footer = ({ image, siteData }) => {
   return (
     <StyledFooter>
       <Row>
         <Col xs={12} sm={6}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "white",
-              flexDirection: "column",
-            }}
-          >
+          <FooterBlock>
             <div>
               <div style={{ fontWeight: "bold" }}>Contact us:</div>
               <address>
                 {siteData.addressLine.map(line => {
-                  return <div>{line}</div>
+                  return <div key={line}>{line}</div>
                 })}
                 <br />
                 <PlainLink href={`tel:${siteData.phoneNumber}`}>
@@ -44,27 +47,19 @@ export const Footer = ({ image, siteData }) => {
                 </PlainLink>
               </address>
             </div>
-          </div>
+          </FooterBlock>
         </Col>
         <Hidden xs>
           <Col sm={6}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "white",
-                flexDirection: "column",
-              }}
-            >
+            <FooterBlock>
               <div style={{ width: "150px" }}>
                 <Img fluid={image.childImageSharp.fluid} />
               </div>
-            </div>
+            </FooterBlock>
           </Col>
         </Hidden>
       </Row>
-      <hr style={{ margin: "40px 30px" }} />
+      <hr style={{ margin: "40px 30px", borderTop: 0 }} />
       <div
         style={{
           display: "flex",

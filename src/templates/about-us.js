@@ -100,6 +100,7 @@ export const AboutUsPageTemplate = ({
   heading,
   subheading,
   image,
+  mobileImage,
   aboutUs,
   ourTeam,
   profiles,
@@ -107,10 +108,24 @@ export const AboutUsPageTemplate = ({
   <div>
     <Parallax
       image={
-        <Img
-          fluid={image.childImageSharp.fluid}
-          imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
-        />
+        !!image.childImageSharp ? (
+          <Img
+            fluid={image?.childImageSharp?.fluid}
+            imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
+          />
+        ) : (
+          <img src={image} />
+        )
+      }
+      mobileImage={
+        mobileImage?.childImageSharp ? (
+          <Img
+            fluid={mobileImage?.childImageSharp?.fluid}
+            imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
+          />
+        ) : (
+          <img src={mobileImage} />
+        )
       }
       height="90vh"
       staticContent={
@@ -140,7 +155,7 @@ export const AboutUsPageTemplate = ({
         <Col xs={12} sm={8} offset={{ sm: 2 }}>
           <HeadedColumnText heading={aboutUs.heading}>
             {aboutUs.text.map(({ paragraph }) => (
-              <p>{paragraph}</p>
+              <p key={paragraph}>{paragraph}</p>
             ))}
           </HeadedColumnText>
         </Col>
@@ -160,7 +175,7 @@ export const AboutUsPageTemplate = ({
         <Col xs={12} sm={8} offset={{ sm: 2 }}>
           <HeadedColumnText heading={ourTeam.heading}>
             {ourTeam.text.map(({ paragraph }) => (
-              <p>{paragraph}</p>
+              <p key={paragraph}>{paragraph}</p>
             ))}
           </HeadedColumnText>
         </Col>
@@ -170,6 +185,7 @@ export const AboutUsPageTemplate = ({
       <Row style={{ alignItems: "center", justifyContent: "center" }}>
         {profiles.map(profile => (
           <div
+            key={profile.name}
             style={{
               width: "200px",
               filter: "grayscale(100%)",
@@ -193,6 +209,7 @@ const AboutUsPage = ({ data }) => {
       heading={frontmatter.heading}
       subheading={frontmatter.subheading}
       image={frontmatter.image}
+      mobileImage={frontmatter.mobileImage}
       aboutUs={frontmatter.aboutUs}
       ourTeam={frontmatter.ourTeam}
       profiles={frontmatter.profiles}
@@ -240,6 +257,13 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             fluid(maxWidth: 1500) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        mobileImage {
+          childImageSharp {
+            fluid(maxWidth: 500) {
               ...GatsbyImageSharpFluid
             }
           }

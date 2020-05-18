@@ -50,60 +50,29 @@ const Show = styled.span`
 // NavItemInner.propTypes = {
 //   children: PropTypes.any,
 // }
+const PAGES = [
+  { path: "/", name: "Home" },
+  { path: "/about-us", name: "About Us" },
+  { path: "/services", name: "Services" },
+  { path: "/our-clients", name: "Our Clients" },
+  { path: "/contact-us", name: "Contact Us" },
+]
 
 const MobileMenuWithContent = ({ isOpen }) => {
   return (
     <MobileMenu isOpen={isOpen}>
-      <Link
-        to="/"
-        style={{
-          textDecoration: "none",
-          color: "inherit",
-          display: "block",
-        }}
-      >
-        Home
-      </Link>
-      <Link
-        to="/about-us"
-        style={{
-          textDecoration: "none",
-          color: "inherit",
-          display: "block",
-        }}
-      >
-        About
-      </Link>
-      <Link
-        to="/services"
-        style={{
-          textDecoration: "none",
-          color: "inherit",
-          display: "block",
-        }}
-      >
-        Services
-      </Link>
-      <Link
-        to="/our-clients"
-        style={{
-          textDecoration: "none",
-          color: "inherit",
-          display: "block",
-        }}
-      >
-        Clients
-      </Link>
-      <Link
-        to="/contact-us"
-        style={{
-          textDecoration: "none",
-          color: "inherit",
-          display: "block",
-        }}
-      >
-        Contact Us
-      </Link>
+      {PAGES.map(page => (
+        <Link
+          to={page.path}
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "block",
+          }}
+        >
+          {page.name}
+        </Link>
+      ))}
     </MobileMenu>
   )
 }
