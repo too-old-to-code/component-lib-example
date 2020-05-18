@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { AboutUsPageTemplate } from "../../templates/about-us"
 
-const IndexPagePreview = ({ entry, getAsset }) => {
+const AboutUsPagePreview = ({ entry, getAsset }) => {
   const data = entry.getIn(["data"]).toJS()
   console.log(entry)
   if (data) {
