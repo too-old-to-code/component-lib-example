@@ -225,7 +225,7 @@ export const IndexPageTemplate = ({
           <CheckerDuo
             key={pitch.title}
             image={
-              !!image.childImageSharp ? (
+              !!pitch.image.childImageSharp ? (
                 <Img
                   fluid={pitch.image.childImageSharp.fluid}
                   loading="lazy"

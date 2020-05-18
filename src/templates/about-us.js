@@ -199,7 +199,7 @@ export const AboutUsPageTemplate = ({
                 alt="mything"
               />
             ) : (
-              <img src={profile.image} />
+              <img src={profile.image} style={{ width: "100%" }} />
             )}
           </div>
         ))}
