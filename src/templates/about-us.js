@@ -192,7 +192,15 @@ export const AboutUsPageTemplate = ({
               textAlign: "center",
             }}
           >
-            <Img fluid={profile.image.childImageSharp.fluid} />
+            {!!profile.image.childImageSharp ? (
+              <Img
+                fluid={profile.image.childImageSharp.fluid}
+                loading="lazy"
+                alt="mything"
+              />
+            ) : (
+              <img src={profile.image} />
+            )}
           </div>
         ))}
       </Row>
