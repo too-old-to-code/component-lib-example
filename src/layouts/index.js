@@ -4,7 +4,7 @@ import { Link, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import { Footer } from "../components/footer"
-
+import { ScreenClassProvider } from "react-grid-system"
 import { Navbar, NavbarLayoutMulti, NavbarItem, MobileMenu } from "@custom-lib"
 import {
   ScrollController,
@@ -152,111 +152,113 @@ const Layout = ({ children }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <ScrollController>
-        <ScrollScene
-          classToggle="second-color"
-          triggerHook="0"
-          triggerElement="#top-flag"
-          offset="50px"
-        >
-          <div>
-            <Navbar
-              style={{
-                boxShadow: "0px 5px 10px 0px rgba(0,0,0,0.125)",
-                letterSpacing: "1px",
-                paddingRight: "30px",
-                fontSize: "1em",
-                fontWeight: "bold",
-              }}
-              burgerMenuStyle="spin"
-              burgerMenuIsActive={burgerMenuIsActive}
-              toggleMenu={() => burgerMenuToggleActive(!burgerMenuIsActive)}
-            >
-              <NavbarLayoutMulti
-                itemsPosition="right"
-                logoPosition="left"
-                logo={
-                  <NavbarItem logo>
-                    <Hide>
-                      <Img
-                        fluid={data.placeholderImage.childImageSharp.fluid}
-                        style={{ width: "70px" }}
-                      />
-                    </Hide>
-                    <Show>
-                      <Img
-                        fluid={data.altLogo.childImageSharp.fluid}
-                        style={{ width: "70px" }}
-                      />
-                    </Show>
-                  </NavbarItem>
-                }
-                mobileMenu={
-                  <MobileMenuWithContent isOpen={burgerMenuIsActive} />
-                }
+      <ScreenClassProvider fallbackScreenClass="xs">
+        <ScrollController>
+          <ScrollScene
+            classToggle="second-color"
+            triggerHook="0"
+            triggerElement="#top-flag"
+            offset="50px"
+          >
+            <div>
+              <Navbar
+                style={{
+                  boxShadow: "0px 5px 10px 0px rgba(0,0,0,0.125)",
+                  letterSpacing: "1px",
+                  paddingRight: "30px",
+                  fontSize: "1em",
+                  fontWeight: "bold",
+                }}
+                burgerMenuStyle="spin"
+                burgerMenuIsActive={burgerMenuIsActive}
+                toggleMenu={() => burgerMenuToggleActive(!burgerMenuIsActive)}
               >
-                <Link
-                  to="/"
-                  activeClassName="active-link"
-                  style={{ textDecoration: "none", color: "inherit" }}
+                <NavbarLayoutMulti
+                  itemsPosition="right"
+                  logoPosition="left"
+                  logo={
+                    <NavbarItem logo>
+                      <Hide>
+                        <Img
+                          fluid={data.placeholderImage.childImageSharp.fluid}
+                          style={{ width: "70px" }}
+                        />
+                      </Hide>
+                      <Show>
+                        <Img
+                          fluid={data.altLogo.childImageSharp.fluid}
+                          style={{ width: "70px" }}
+                        />
+                      </Show>
+                    </NavbarItem>
+                  }
+                  mobileMenu={
+                    <MobileMenuWithContent isOpen={burgerMenuIsActive} />
+                  }
                 >
-                  <NavbarItem key="1">
-                    <NavItemInner>Home</NavItemInner>
-                  </NavbarItem>
-                </Link>
-                <Link
-                  to="/about-us"
-                  activeClassName="active-link"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <NavbarItem key="2">
-                    <NavItemInner>About</NavItemInner>
-                  </NavbarItem>
-                </Link>
-                <Link
-                  to="/our-clients"
-                  activeClassName="active-link"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <NavbarItem
-                    key="3"
+                  <Link
+                    to="/"
+                    activeClassName="active-link"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    <NavItemInner>Clients</NavItemInner>
-                  </NavbarItem>
-                </Link>
-                <Link
-                  to="/services"
-                  activeClassName="active-link"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <NavbarItem
-                    key="3"
+                    <NavbarItem key="1">
+                      <NavItemInner>Home</NavItemInner>
+                    </NavbarItem>
+                  </Link>
+                  <Link
+                    to="/about-us"
+                    activeClassName="active-link"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    <NavItemInner>Services</NavItemInner>
-                  </NavbarItem>
-                </Link>
-                <Link
-                  to="/contact-us"
-                  activeClassName="active-link"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <NavbarItem key="4">
-                    <NavItemInner>Contact Us</NavItemInner>
-                  </NavbarItem>
-                </Link>
-              </NavbarLayoutMulti>
-            </Navbar>
-          </div>
-        </ScrollScene>
-      </ScrollController>
-      <div id="top-flag"></div>
+                    <NavbarItem key="2">
+                      <NavItemInner>About</NavItemInner>
+                    </NavbarItem>
+                  </Link>
+                  <Link
+                    to="/our-clients"
+                    activeClassName="active-link"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <NavbarItem
+                      key="3"
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      <NavItemInner>Clients</NavItemInner>
+                    </NavbarItem>
+                  </Link>
+                  <Link
+                    to="/services"
+                    activeClassName="active-link"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <NavbarItem
+                      key="3"
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      <NavItemInner>Services</NavItemInner>
+                    </NavbarItem>
+                  </Link>
+                  <Link
+                    to="/contact-us"
+                    activeClassName="active-link"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <NavbarItem key="4">
+                      <NavItemInner>Contact Us</NavItemInner>
+                    </NavbarItem>
+                  </Link>
+                </NavbarLayoutMulti>
+              </Navbar>
+            </div>
+          </ScrollScene>
+        </ScrollController>
+        <div id="top-flag"></div>
 
-      {children}
-      <div>
-        <Footer siteData={data.sitedata.nodes[0]} image={data.investors} />
-      </div>
+        {children}
+        <div>
+          <Footer siteData={data.sitedata.nodes[0]} image={data.investors} />
+        </div>
+      </ScreenClassProvider>
     </ThemeProvider>
   )
 }
