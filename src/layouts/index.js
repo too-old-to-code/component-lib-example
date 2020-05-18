@@ -63,6 +63,7 @@ const MobileMenuWithContent = ({ isOpen }) => {
     <MobileMenu isOpen={isOpen}>
       {PAGES.map(page => (
         <Link
+          key={page.path}
           to={page.path}
           style={{
             textDecoration: "none",

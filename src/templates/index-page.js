@@ -117,7 +117,7 @@ export const IndexPageTemplate = ({
             imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
           />
         ) : (
-          <img src={image} />
+          <img src={image} alt="desktop" />
         )
       }
       mobileImage={
@@ -127,7 +127,7 @@ export const IndexPageTemplate = ({
             imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
           />
         ) : (
-          <img src={mobileImage} />
+          <img src={mobileImage} alt="mobile" />
         )
       }
       height="90vh"
@@ -232,7 +232,7 @@ export const IndexPageTemplate = ({
                   alt="mything"
                 />
               ) : (
-                <img src={pitch.image} />
+                <img src={pitch.image} alt="alt" />
               )
             }
             height="350px"

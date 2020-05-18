@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
 
 export const OurClientsPageTemplate = props => {
   return (

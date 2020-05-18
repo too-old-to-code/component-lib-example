@@ -1,6 +1,6 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import { Row, Col, Container } from "react-grid-system"
+import { Row, Col } from "react-grid-system"
 import { BoxPanel } from "@custom-lib"
 
 const StyledForm = styled.form`

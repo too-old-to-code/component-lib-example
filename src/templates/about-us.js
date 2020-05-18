@@ -114,7 +114,7 @@ export const AboutUsPageTemplate = ({
             imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
           />
         ) : (
-          <img src={image} />
+          <img src={image} alt="desktop" />
         )
       }
       mobileImage={
@@ -124,7 +124,7 @@ export const AboutUsPageTemplate = ({
             imgStyle={{ objectFit: "cover", objectPosition: "70% 100%" }}
           />
         ) : (
-          <img src={mobileImage} />
+          <img src={mobileImage} alt="mobile" />
         )
       }
       height="90vh"
@@ -199,7 +199,7 @@ export const AboutUsPageTemplate = ({
                 alt="mything"
               />
             ) : (
-              <img src={profile.image} style={{ width: "100%" }} />
+              <img src={profile.image} style={{ width: "100%" }} alt="alt" />
             )}
           </div>
         ))}
