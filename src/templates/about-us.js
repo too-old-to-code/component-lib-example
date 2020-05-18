@@ -22,6 +22,7 @@ const ImageText = styled.div`
   margin-left: 50px;
   font-family: "Teko";
   font-size: 4em;
+  font-weight: bold;
   color: rgb(160, 216, 123);
   text-shadow: 1px 1px 1px black;
   @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
@@ -87,9 +88,7 @@ const ColumnText = styled.div`
 const HeadedColumnText = ({ heading, children }) => {
   return (
     <React.Fragment>
-      <h3 style={{ textAlign: "center", color: "#0A99D8", padding: "0 40px" }}>
-        {heading}
-      </h3>
+      <h3 style={{ textAlign: "center", color: "#0A99D8" }}>{heading}</h3>
       <ColumnText>{children}</ColumnText>
     </React.Fragment>
   )

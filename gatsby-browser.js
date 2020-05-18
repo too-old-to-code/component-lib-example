@@ -4,7 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 require("typeface-teko")
-require("reset-css")
+// require("reset-css")
 // You can delete this file if you're not using it
 exports.shouldUpdateScroll = () => {
   // document.getElementById("main-area").scrollTo(0, 0)
