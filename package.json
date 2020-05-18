@@ -38,6 +38,7 @@
     "react-gsap": "^1.2.0",
     "react-helmet": "^6.0.0",
     "react-scrollmagic": "^2.2.0",
+    "reset-css": "^5.0.1",
     "styled-components": "^5.1.0",
     "typeface-teko": "0.0.72"
   },
