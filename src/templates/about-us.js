@@ -43,8 +43,8 @@ const ImageText = styled.div`
 // `
 
 const ColumnText = styled.div`
-  column-width: 400px;
-  column-gap: 40px;
+  // column-width: 400px;
+  // column-gap: 40px;
   padding: 0 40px;
   color: #708080;
   p {
@@ -55,7 +55,7 @@ const ColumnText = styled.div`
     }
   }
   @media (max-width: ${({ theme }) => theme?.breakpoints?.maxMobile}) {
-    padding: 0;
+    padding: 0 10px;
     text-align: justify;
   }
 `
